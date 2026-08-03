@@ -82,9 +82,6 @@
 /* File for adding a scroll-to-top button or effect */
 @import url("scroll-to-top.css");
 
-/* File for adding accordion functionality to expand/collapse content sections */
-@import url("accordian.css");
-
 /* 
 ██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████ 
 ██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██      
@@ -105,57 +102,63 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "Eczar", serif;
-  --font-family-project-title: "Eczar", serif;
+  --font-family-body: "DM Sans 36pt", sans-serif;
+  --font-family-heading: "DM Sans 36pt", sans-serif;
+  --font-family-project-title: "DM Sans 36pt", sans-serif;
+  --font-family-project-accent: "DM Mono", sans-serif;
   /* Core Colours */
-  --color-text-primary: #222;
-  --color-text-secondary: #333;
-  --color-accent-primary: #5200ff;
-  --color-accent-secondary: #ff057c;
-  --color-overlay-primary: rgba(82, 0, 255, 0.5);
+  --color-text-primary: #262626;
+  --color-text-secondary: #262626;
+  --color-accent-primary: #262626;
+  --color-accent-secondary: #ff2e7e;
+  --color-overlay-primary: rgb(38, 38, 38, 0.85);
   --color-highlight: lemonchiffon;
-  --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: #f7faf4; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #fdfdfd;
-  --color-bg-about: #f5f5f5;
-  --color-bg-footer: #f5f5f5;
-  --color-bg-holding-page: rgba(82, 0, 255, 0.6);
+  --color-bg: #f7faf4;
+  --color-bg-about: #f7faf4;
+  --color-bg-footer: #f7faf4;
+  --color-bg-holding-page: #f7faf4;
   /* Headings */
-  --h1-color: #5200ff;
-  --h2-color: #5200ff;
-  --h3-color: #5200ff;
-  --h4-color: #5200ff;
-  --h5-color: #5200ff;
-  --h6-color: #5200ff;
+  --h1-color: #262626;
+  --h2-color: #262626;
+  --h3-color: #262626;
+  --h4-color: #262626;
+  --h5-color: #262626;
+  --h6-color: #262626;
   /* Special Text Colours */
-  --color-text-holding-title: #ebedf0;
-  --color-text-project-category: #ffffff;
-  --color-text-project-description: #222;
+  --color-text-holding-title: #f7faf4;
+  --color-text-project-category: #f7faf4;
+  --color-text-project-description: #262626;
   --color-text-project-sidebar: #222;
-  --color-text-project-title: #5200ff;
-  --color-text-work-grid-title: #ffffff;
+  --color-text-project-title: #262626;
+  --color-text-work-grid-title: #f7faf4;
   /* Link States */
-  --color-link: #5200ff;
-  --color-link-hover: #111;
-  --color-link-visited: #5200ff;
+  --color-link: #262626;
+  --color-link-hover: #ff2e7e;
+  --color-link-visited: #262626;
   /* Navigation */
-  --color-nav-link: #5200ff;
-  --color-nav-link-hover: #321575;
-  --color-nav-arrow: #5200ff;
-  --color-nav-arrow-hover: #000;
-  --color-nav-arrow-stroke: #5200ff;
-  --color-nav-arrow-stroke-hover: #000;
+  --color-nav-link: #262626;
+  --color-nav-link-hover: #ff2e7e;
+  --color-nav-arrow: #262626;
+  --color-nav-arrow-hover: #ff2e7e;
+  --color-nav-arrow-stroke: #262626;
+  --color-nav-arrow-stroke-hover: #ff2e7e;
   /* Components */
-  --color-bg-full-width: #f5f5f5;
-  --color-bg-project-description: #f5f5f5;
-  --color-bg-sidebar-project: orangered;
+  --color-bg-full-width: #f7faf4;
+  --color-bg-project-description: #f7faf4;
+  --color-bg-sidebar-project: transparent;
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
-  --color-gradient-project-details: linear-gradient(-225deg, #ff057c 0%, #8d0b93 50%, #321575 100%);
+  --color-gradient-project-details: linear-gradient(
+    -225deg,
+    #ff057c 0%,
+    #8d0b93 50%,
+    #321575 100%
+  );
   /* Special Elements */
   --color-icon-heart: darkred;
-  --color-text-holding-footer: #f8f8ff;
+  --color-text-holding-footer: #fbfdf7;
   --color-bg-selection: #5200ff;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
@@ -206,7 +209,8 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("../assets/temp/up-cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+  cursor:
+    url("../assets/temp/up-cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -234,14 +238,15 @@ body {
 /* ------------------------------- */
 
 ::selection {
-  background: var(--color-bg-selection); /* Uses your custom color for highlighted text */
+  background: var(
+    --color-bg-selection
+  ); /* Uses your custom color for highlighted text */
 }
 
 /* ---------------------------------------- */
 /* 🖼️ Responsive Image Styles */
 /* These styles make your images and icons look good on any screen size */
 /* ---------------------------------------- */
-
 /* Make all images and SVGs scale nicely */
 img,
 svg {
@@ -331,7 +336,7 @@ svg {
 }
 
 .padding-medium {
-  padding: var(--padding-small); /* smaller, mobile-safe default */
+  padding: var(--padding-medium); /* smaller, mobile-safe default */
 }
 
 .padding-large {
@@ -401,9 +406,10 @@ svg {
 .project-video-container {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (because 9 ÷ 16 = 0.5625) */
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* The iframe is absolutely positioned to fill the container */
 .responsive-iframe {
@@ -445,46 +451,46 @@ svg {
 /* Heading Styles (h1 - h6) */
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-family: var(--font-family-heading);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-weight: 500;
   color: var(--h1-color);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  margin-bottom: 1rem;
+
   color: var(--h2-color);
 }
 
 h3 {
   font-size: 1.325rem;
-  margin-bottom: 1rem;
+
   line-height: 1.2;
   color: var(--h3-color);
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
   color: var(--h4-color);
+  font-weight: 300;
 }
 
 h5 {
-  font-size: 1.1rem;
+  font-size: rem;
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h5-color);
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
+
   color: var(--h6-color);
 }
 
@@ -496,21 +502,29 @@ h6 {
 p {
   font-size: 1rem;
   line-height: 1.3;
-  margin-bottom: 1rem;
+
+  font-weight: 300;
+  letter-spacing: 0.04em;
 }
 
-strong {
-  font-weight: 700; /* Makes text bold */
+.strong {
+  font-weight: 400; /* Makes text bold */
 }
 
 em {
   font-style: italic; /* Adds emphasis with italic style */
 }
 
+.light {
+  font-weight: 300;
+}
 sup {
   font-size: 0.6em; /* smaller than the surrounding text */
   vertical-align: super; /* ensures it sits above the baseline */
   font-weight: normal; /* optional: adjust weight */
+}
+.accent-text {
+  font-family: var(--font-family-project-accent);
 }
 
 /* ------------------------------------------------------------------ */
@@ -520,10 +534,12 @@ sup {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: var(--color-accent-primary); /* Uses your brand's dominant color */
+  color: var(--color-bg); /* Uses your brand's dominant color */
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-  margin-inline: auto; /* Horizontally centers the text in its container */
+  padding: var(--padding-tiny);
+  font-weight: 500;
+  width: 100%;
 }
 
 /* Large project title — appears on individual project pages */
@@ -543,10 +559,21 @@ sup {
 }
 
 /* 🧱 Full-width headings — useful in layouts that span edge-to-edge */
-.h1-full-width,
+.h1-full-width {
+  width: 100%;
+}
+.h1-half width {
+  width: 100%;
+  padding-top: var(--padding-large);
+}
 .h2-full-width {
   width: 100%;
   padding: var(--padding-small);
+  padding-top: var(--padding-ultra);
+}
+
+.h4-half-width {
+  width: 70%;
 }
 
 /* ✨ Highlighted text — great for emphasis */
@@ -556,21 +583,21 @@ sup {
 
 .highlight-gradient {
   background: var(--color-gradient-hero);
-  -webkit-background-clip: text;
+
   color: transparent;
   font-weight: bold;
 }
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 2.875rem;
-  color: var(--color-text-work-grid-title);
-  text-wrap: balance;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  color: var(--color-accent-primary);
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: var(--color-text-project-category);
+  color: var(--color-accent-primary);
 }
 
 /*
@@ -623,6 +650,7 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
+  font-weight: 400;
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
@@ -679,12 +707,18 @@ a.nav-link-primary:hover {
 
 .hero {
   width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
   display: flex;
   flex-direction: column;
 }
 .hero-header {
-  min-height: 6rem; /* Space reserved for logo + nav */
+  min-height: 2rem; /* Space reserved for logo + nav */
+  width: 100vw;
+  height: 100vh;
+}
+.hero-background {
+  background: url(../assets/work-page/fish-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .nav-branding {
@@ -701,6 +735,7 @@ a.nav-link-primary:hover {
 }
 .nav-branding-item {
   padding: var(--padding-tiny);
+  width: 15rem;
 }
 
 .nav-branding-logo {
@@ -708,34 +743,20 @@ a.nav-link-primary:hover {
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
 
+.nav-branding-contact {
+  width: 8rem;
+}
+
 .hero-headline-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
 }
 
 .hero-icon {
   font-size: 4rem;
-}
-
-.hero-footer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.hero-footer-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: var(--padding-small);
 }
 
 /*
@@ -756,24 +777,35 @@ a.nav-link-primary:hover {
 
 .full-width-section {
   width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
+  min-height: 50vh; /* Takes up most of the screen height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-full-width); /* Background color for full-width sections */
+  background: var(
+    --color-bg-full-width
+  ); /* Background color for full-width sections */
   margin-bottom: 1rem;
 }
 
+.half-width-section {
+  width: 100%;
+  min-height: 20vh; /* Takes up most of the screen height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
 .full-width-headline-wrapper {
   width: 100%;
-  min-height: 60vh; /* Ensures the headline takes up a good portion of the screen */
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--padding-small);
-  text-align: center; /* Keeps the text centered */
+  text-align: center;
 }
 
 .section-container {
@@ -789,7 +821,36 @@ a.nav-link-primary:hover {
   padding: var(--padding-small);
   margin: 1rem;
 }
-
+.project-classification {
+  gap: 0.5rem;
+  line-height: 0.5rem;
+}
+.project-page-classification {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.project-classification p {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 60px;
+  font-size: 1rem;
+}
+.project-award p {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background-color: #000;
+  color: var(--color-bg);
+  border-radius: 60px;
+  font-size: 1rem;
+}
+.spacing-minimal {
+  margin-bottom: 1rem;
+}
+.spacing-tiny {
+  margin-bottom: 0.3rem;
+}
 /* 
 
 ██     ██  ██████  ██████  ██   ██     ██████   █████   ██████  ███████ 
@@ -806,22 +867,33 @@ a.nav-link-primary:hover {
 /* The goal is to showcase your projects and provide a responsive, clean UI  */
 /* -------------------------------------------------------------------------- */
 
-/* Work wrapper (takes up available space) */
 .main-work-section {
   flex: 1;
+  padding: var(--padding-large);
+  padding-top: var(--padding-jumbo);
 }
 
 /* Padding around work grid and project page */
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
-  padding: var(--padding-tiny); /* Padding to keep content from touching edges */
+  padding: var(
+    --padding-small
+  ); /* Padding to keep content from touching edges */
 }
-
+.video-container {
+  object-fit: cover;
+  border-radius: var(
+    --radius-md
+  ); /* Adjust this value for more or less roundness */
+  overflow: hidden;
+}
 /* Work Sidebar on Mobile */
 .work-sidebar {
   width: 100%;
-  background: var(--color-bg-sidebar-work); /* Background color for the sidebar */
+  background: var(
+    --color-bg-sidebar-work
+  ); /* Background color for the sidebar */
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -832,8 +904,11 @@ a.nav-link-primary:hover {
 /* Defining the work page grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid */
-  grid-gap: 1rem; /* Space between grid items */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Creates a responsive grid */
+  grid-gap: 2rem; /* Space between grid items */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
 }
 
@@ -844,15 +919,40 @@ a.nav-link-primary:hover {
   height: auto;
   position: relative; /* Needed to position the overlay */
 }
+.work-page-feature-item {
+  width: 100%;
+  padding-bottom: var(--padding-small);
+}
 /* Masonry Overlay Text */
 .overlay-container:hover .overlay {
   opacity: 1;
 }
 
+/* Masonry Hover */
+.img-container:hover .img-hover {
+  opacity: 1 !important;
+}
+
+.image-container:hover .img-default {
+  opacity: 0 !important;
+}
 /* Project container for background and padding */
 .project-container {
   background: var(--color-accent-primary); /* Set project background color */
   padding: var(--padding-medium);
+}
+.project-topics {
+  flex-flow: row;
+  flex: none;
+  place-content: center;
+  align-items: center;
+  gap: 10px;
+  width: min-content;
+  height: min-content;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Overlay (appears on hover) */
@@ -871,7 +971,9 @@ a.nav-link-primary:hover {
   align-items: center;
   flex-direction: column;
   padding: var(--padding-small);
-  background-color: var(--color-overlay-primary); /* Background color of the overlay */
+  background-color: var(
+    --color-overlay-primary
+  ); /* Background color of the overlay */
   transition:
     opacity var(--duration-normal),
     visibility var(--duration-normal);
@@ -885,10 +987,26 @@ a.nav-link-primary:hover {
 
 /* Optional container for future overlay customization */
 .project-details-overlay {
+  align-items: center;
   /* Placeholder: no custom styles yet */
 }
 
-/*
+.zoom-container {
+  width: 100%;
+  overflow: hidden; /* Hides the zoomed portion outside the container */
+  border-radius: var(--radius-md);
+}
+
+.zoom-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Controls the speed and smoothness */
+}
+
+.zoom-container img:hover {
+  transform: scale(1.2); /* Zooms the image by 20% on hover */
+}
 
 ███████ ██ ██████  ███████ ██████   █████  ██████  
 ██      ██ ██   ██ ██      ██   ██ ██   ██ ██   ██ 
@@ -952,6 +1070,9 @@ a.nav-link-primary:hover {
   grid-column: 1 / 2; /* Text spans the first column */
   grid-row: 2 / 3; /* Text spans the second row */
 }
+.about-image {
+  padding: var(--padding-small);
+}
 
 /* 
 
@@ -973,8 +1094,8 @@ a.nav-link-primary:hover {
   grid-template-columns: 1fr; /* Single column layout */
   grid-gap: 3rem; /* Consistent spacing between sections */
   min-height: auto; /* Allows footer to expand based on content, no fixed height */
-  background: var(--color-bg-footer); /* Using CSS variable for theming */
-  padding: var(--padding-small); /* Internal spacing */
+  padding: var(--padding-medium); /* Internal spacing */
+  width: 100%;
 
   /* Note: Using 'fr' units ensures proper scaling across devices */
 }
@@ -1049,6 +1170,26 @@ a.nav-link-primary:hover {
   padding-left: 0.5rem;
   text-indent: -0.5rem; /* Pulls text back toward bullet */
 }
+.footer-background {
+  background: url(../assets/gif/loop\ falling\ Sticker\ by\ Simon\ Falk\ -\ Find\ &\ Share\ on\ GIPHY.gif);
+  background-color: #00ffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  padding: var(--padding-small);
+}
+
+.hero-footer-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--padding-small);
+}
 
 /* -------------------------------------------------------------------------- */
 /* ✨ Footer Special Elements                                                 */
@@ -1107,13 +1248,13 @@ a.nav-link-primary:hover {
 /* Full-width wrapper for the project section */
 .project-wrapper-full-width {
   width: 100%;
-  padding: var(--padding-small);
+  padding: var(--padding-medium);
 }
 
 /* Container for the project content with full-width display */
 .project-full-width {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Sidebar Styles */
@@ -1142,19 +1283,27 @@ a.nav-link-primary:hover {
   justify-content: flex-start;
   flex-direction: column;
   background: var(--color-bg-project-description);
-  padding: var(--padding-small);
+
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
 }
 
-/* Column styles for one-column, two-column and four-column layouts (mobile-first) */
-.col-1,
+/* Column styles for two-column and four-column layouts (mobile-first) */
 .col-2,
 .col-4 {
   width: 100%;
   padding: var(--padding-small);
 }
+.row-2 {
+  margin-top: 1rem;
+}
+.row-1 {
+  margin-top: 0.5rem;
+}
 
+.row-3 {
+  margin-top: 1.5rem;
+}
 /* Project image styling */
 .project-image {
   width: 100%;
@@ -1163,11 +1312,20 @@ a.nav-link-primary:hover {
   justify-content: center;
   margin-bottom: 1rem;
 }
+.image-container .img-hover {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
 /* Project details section */
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(--color-gradient-project-details); /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
 /* Previous/Next Arrow Styles */
@@ -1272,7 +1430,9 @@ a.nav-link-primary:hover {
 
 .holding-page-copyright {
   font-size: 0.8rem; /* Smaller font size for copyright text */
-  color: var(--color-text-holding-footer); /* Custom color for the footer text */
+  color: var(
+    --color-text-holding-footer
+  ); /* Custom color for the footer text */
   margin-bottom: 0; /* Removes default margin from the bottom of the copyright text */
 }
 
@@ -1290,6 +1450,7 @@ a.nav-link-primary:hover {
 
 .error-headline-wrapper {
   width: 85%;
+
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -1301,7 +1462,7 @@ a.nav-link-primary:hover {
 }
 
 .error-page-animation {
-  width: 25rem;
+  height: 30rem;
 }
 
 /*
@@ -1327,7 +1488,20 @@ to keep your styles reusable and consistent.
 */
 
 .play-page {
-  /* Add page-specific layout or container styles here */
+  align-items: center; /* Add page-specific layout or container styles here */
+}
+.masonry-item,
+.masonry-item a {
+  position: relative;
+  display: block; /* Ensures the link tag expands to wrap the image */
+}
+
+.image-container {
+  position: relative;
+  margin: 0; /* Removes default browser figure margins */
+  padding: 0;
+  display: block;
+  overflow: hidden;
 }
 
 /*
@@ -1371,16 +1545,23 @@ to keep your styles reusable and consistent.
 
 @media (min-width: 992px) {
   /* TODO: Add or adjust styles here for large devices. */
-
+  .project-header {
+    padding: 0 60px 60px 60px;
+  }
   .flex-row {
     flex-direction: row; /* Changes to row layout on larger screens */
+    min-height: 35vh;
+    align-items: flex-end;
   }
-
+  .no-height {
+    min-height: auto;
+    padding: var(--padding-tiny);
+  }
   .width-third {
-    width: 33.333%;
+    width: 25%;
   }
   .width-two-thirds {
-    width: 66.666%;
+    width: 75%;
   }
   .holding-page-title {
     font-size: 2rem;
@@ -1391,17 +1572,53 @@ to keep your styles reusable and consistent.
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.625rem;
+    font-size: 1.3rem;
   }
 
-  .h1-full-width,
-  .h2-full-width {
-    width: 70%;
+  .h4 {
+    font-size: 1.2rem;
+    line-height: 1.2;
     padding: var(--padding-small);
+    color: var(--h4-color);
+    font-weight: 500;
+  }
+
+  .h5 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+
+    color: var(--h4-color);
+  }
+
+  .h6 {
+    font-size: 2rem;
+    line-height: 1.2;
+
+    color: var(--h6-color);
+  }
+
+  .h1-full-width {
+    width: 80%;
+  }
+  .h2-full-width {
+    width: 80%;
+    padding: var(--padding-small);
+    padding-top: var(--padding-large);
+  }
+  .h5-full-width {
+    padding: var(--padding-small);
+  }
+  .hero-headline {
+    color: var(--color-accent-primary); /* Uses your brand's dominant color */
+    max-width: 40ch; /* Optimal line length for readability (~40 characters) */
+    text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
+    padding: var(--padding-small);
+    font-weight: 500;
+    width: 80%;
   }
 
   /* ----------------------------- */
@@ -1443,15 +1660,24 @@ to keep your styles reusable and consistent.
     /* TODO: Adjust the width of the logo on large devices here. */
   }
 
-  .hero {
-    min-height: 100vh;
+  .hero-headline-wrapper {
+    padding-top: var(--padding-small);
+    min-height: 80vh;
   }
 
-  .hero-headline-wrapper {
-    padding-top: var(--padding-jumbo);
-    padding-bottom: var(--padding-jumbo);
-    padding-left: var(--padding-ultra);
-    padding-right: var(--padding-ultra);
+  .full-width-headline-wrapper {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-small);
+    text-align: center;
+  }
+
+  .right-aligned {
+    text-align: right;
   }
   .error-headline-wrapper {
     padding-top: var(--padding-small);
@@ -1468,7 +1694,7 @@ to keep your styles reusable and consistent.
 
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 2rem;
   }
 
   /* Grayscale filter with full-colour on hover and tap */
@@ -1500,7 +1726,7 @@ to keep your styles reusable and consistent.
   /* Project Full Width Styles */
 
   .project-wrapper-full-width {
-    padding: var(--padding-small);
+    padding: var(--padding-large);
   }
 
   /* Sidebar on Large Devices */
@@ -1510,7 +1736,7 @@ to keep your styles reusable and consistent.
     height: 80vh;
     position: -webkit-sticky;
     position: sticky;
-    top: 8rem;
+    top: 2rem;
     padding-right: 2rem;
   }
 
@@ -1523,8 +1749,12 @@ to keep your styles reusable and consistent.
   .project-image-container,
   .project-description-container {
     flex-direction: row;
+    gap: 10rem;
+    justify-content: center;
   }
-
+  .project-margin {
+    padding: 0 180px;
+  }
   .section-container {
     width: 80%; /* Adjust this width for larger screens if needed */
     flex-direction: row;
@@ -1532,7 +1762,7 @@ to keep your styles reusable and consistent.
 
   /* Column styles for two-column and four-column layouts (desktop) */
   .col-2 {
-    width: 50%;
+    width: 40%;
   }
   .col-4 {
     width: 25%;
@@ -1567,11 +1797,10 @@ to keep your styles reusable and consistent.
   /* ------------------------------- */
 
   .footer-global {
-    padding-top: var(--padding-jumbo);
-    padding-right: var(--padding-jumbo);
+    padding-right: var(--padding-medium);
     padding-bottom: 0;
-    padding-left: var(--padding-jumbo);
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    padding-left: var(--padding-medium);
+    grid-template-columns: 1fr 1fr 2fr; /* Three equal columns */
   }
 
   /* Column 1: Tagline/Message */
@@ -1598,7 +1827,7 @@ to keep your styles reusable and consistent.
   .footer-full-width {
     grid-row: 2 / 3;
     grid-column: 1 / 4; /* Spans all three columns */
-    text-align: center;
+    text-align: left;
     align-self: end; /* Aligns content to bottom */
   }
 
