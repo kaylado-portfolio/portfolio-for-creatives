@@ -405,11 +405,8 @@ svg {
 /* The container holds the video and maintains a 16:9 aspect ratio */
 .project-video-container {
   position: relative;
-  overflow: hidden;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 /* The iframe is absolutely positioned to fill the container */
 .responsive-iframe {
@@ -713,11 +710,10 @@ a.nav-link-primary:hover {
 .hero-header {
   min-height: 2rem; /* Space reserved for logo + nav */
   width: 100vw;
-  height: 100vh;
 }
 .hero-background {
-  background: url(../assets/work-page/fish-background.jpg);
-  background-size: cover;
+  background: url(../assets/work-page/website-background.png);
+
   background-repeat: no-repeat;
 }
 
@@ -851,6 +847,113 @@ a.nav-link-primary:hover {
 .spacing-tiny {
   margin-bottom: 0.3rem;
 }
+
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer marquee animation */
+
+.marquee-top {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+  border-top: 0.5px solid #28100c;
+  border-bottom: 0.5px solid #28100c;
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-tiny);
+}
+
+.marquee-toptrack {
+  display: flex;
+  width: max-content;
+  animation: marquee-top-scroll 15s linear infinite;
+}
+
+.marquee-topcontent {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-toplist {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.marquee-topitem {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.marquee-topitem h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.marquee-topitem:not(:last-child)::after {
+  content: "/";
+  margin-left: 1.5rem;
+  opacity: 0.5;
+}
+
+@keyframes marquee-top-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-top__track {
+    animation: none;
+  }
+}
+/* Fade in text animation */
+@keyframes textEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    filter: blur(0px);
+  }
+}
+
+.load-fade-text {
+  opacity: 0;
+  animation: textEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+/* button style */
+.btn-primary {
+  display: inline-block;
+  background: var(--color-bg-selection);
+  color: black;
+  text-decoration: none;
+  padding: 0 1.5rem;
+  border-radius: 4rem;
+  font-family: "DM sans", sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s ease-in-out;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+}
 /* 
 
 ██     ██  ██████  ██████  ██   ██     ██████   █████   ██████  ███████ 
@@ -869,8 +972,8 @@ a.nav-link-primary:hover {
 
 .main-work-section {
   flex: 1;
-  padding: var(--padding-large);
-  padding-top: var(--padding-jumbo);
+  padding: var(--padding-medium);
+  padding-top: var(--padding-tiny);
 }
 
 /* Padding around work grid and project page */
@@ -920,12 +1023,25 @@ a.nav-link-primary:hover {
   position: relative; /* Needed to position the overlay */
 }
 .work-page-feature-item {
-  width: 100%;
   padding-bottom: var(--padding-small);
 }
 /* Masonry Overlay Text */
 .overlay-container:hover .overlay {
   opacity: 1;
+}
+/* Project Scroll Animation */
+
+.work-page-grid-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s ease-out;
+}
+
+.work-page-grid-item.is-visible {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 /* Masonry Hover */
@@ -1292,7 +1408,7 @@ a.nav-link-primary:hover {
 .col-2,
 .col-4 {
   width: 100%;
-  padding: var(--padding-small);
+  padding: var(--padding-medium);
 }
 .row-2 {
   margin-top: 1rem;
@@ -1620,6 +1736,9 @@ to keep your styles reusable and consistent.
     font-weight: 500;
     width: 80%;
   }
+  .hero-headline {
+    height: 50%;
+  }
 
   /* ----------------------------- */
   /* 📦 Padding Utilities (Desktop) */
@@ -1662,7 +1781,7 @@ to keep your styles reusable and consistent.
 
   .hero-headline-wrapper {
     padding-top: var(--padding-small);
-    min-height: 80vh;
+    min-height: 70vh;
   }
 
   .full-width-headline-wrapper {
