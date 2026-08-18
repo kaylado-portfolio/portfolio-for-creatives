@@ -103,7 +103,7 @@
                 width="1920"
                 height="1080"
                 loading="lazy"
-                alt="Cat Care Guide Booklet"
+                alt="The Purrfect Start Project Thumbnail"
           class="rounded-medium"
               />
             </figure>
@@ -116,7 +116,7 @@
                
            <h1 class="work-grid-project-title spacing-tiny">The Purrfect Start</h1>
                 <h4 class="work-grid-project-category">
-                  Branding • Print • Art Direction • Award Winner
+                  Print • Branding • Award Winner
                 </h4>
                    </div>
             </a>
@@ -128,7 +128,7 @@
                 width="1920"
                 height="1080"
                 loading="lazy"
-                alt="Beverage branding project"
+                alt="Spriig Project thumbnail"
                 class="rounded-medium"
               />
             </figure></a> 
@@ -145,14 +145,14 @@
                 width="1920"
                 height="1080"
                 loading="lazy"
-                alt="Planeta Pop Thumbnail"
+                alt="Planeta Pop Project Thumbnail"
                 class="rounded-medium"
               />
             </figure></a>
             <a href="project-3.html">
            <div class="project-details-overlay">
             <h1 class="work-grid-project-title spacing-tiny">Planeta Pop</h1>
-                <h4 class="work-grid-project-category">Branding • Motion Design • Art Direction</h4></div>
+                <h4 class="work-grid-project-category">Branding • Motion • Art Direction</h4></div>
           
             </a>
             
@@ -164,7 +164,7 @@
                 width="1920"
                 height="1080"
                 loading="lazy"
-                alt="Pinch Corner store belonging project"
+                alt="Fruition Movement Project Thumnail"
                 class="rounded-medium"
               />
             </figure></a>
@@ -172,7 +172,7 @@
               <div class="project-details-overlay">
                 <h1 class="work-grid-project-title spacing-tiny">Fruition Movement</h1>
                 <h4 class="work-grid-project-category">
-                  Branding • Motion Design • Award Winner
+                  Branding • Motion • Award Winner
                 </h4>
               </div>
             </a>
@@ -190,9 +190,9 @@
             </figure></a>
             <a href="project-4.html">
               <div class="project-details-overlay">
-                <h1 class="work-grid-project-title spacing-tiny">Fruition Movement</h1>
+                <h1 class="work-grid-project-title spacing-tiny">Capstone</h1>
                 <h4 class="work-grid-project-category">
-                  Branding • Motion Design • Award Winner
+                  Branding • 
                 </h4>
               </div>
             </a>
@@ -200,19 +200,19 @@
           <li class="work-page-grid-item" style="transition-delay: 500ms;">
                <a href="project-4.html"><figure class="zoom-container">
               <img
-                src="assets/work-page/fruition-movement.jpg"
+                src="assets/work-page/pinch.jpg"
                 width="1920"
                 height="1080"
                 loading="lazy"
-                alt="Pinch Corner store belonging project"
+                alt="Project Thumbnail"
                 class="rounded-medium"
               />
             </figure></a>
             <a href="project-4.html">
               <div class="project-details-overlay">
-                <h1 class="work-grid-project-title spacing-tiny">Fruition Movement</h1>
+                <h1 class="work-grid-project-title spacing-tiny">Pinch</h1>
                 <h4 class="work-grid-project-category">
-                  Branding • Motion Design • Award Winner
+                  Branding • Motion • Packaging
                 </h4>
               </div>
             </a>
@@ -302,7 +302,6 @@
     <div class="flier">
       <img src="assets/branding-images/cucumber.png" alt="Describe your image" />
     </div>
-
     <script>
       myID = document.getElementById("myID");
 
@@ -345,8 +344,29 @@
     scrollObserver.observe(item);
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.custom-cursor');
+  const links = document.querySelectorAll('a, button'); // Update selectors as needed
+
+  if (!cursor) {
+    console.error('Custom cursor element not found!');
+    return;
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  links.forEach((link) => {
+    link.addEventListener('mouseenter', () => cursor.classList.add('expand'));
+    link.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
+  });
+});
 
     </script>
-    
+    <div class="custom-cursor">
+  <span class="cursor-arrow">view</span>
+</div>
   </body>
 </html>

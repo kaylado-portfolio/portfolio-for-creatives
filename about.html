@@ -64,7 +64,7 @@
       <div class="flex-row padding-large about-page">
         <div class="col-2">
       <figure class="project-image">
-                <img src="assets/about/kayla-do-about-me.jpg" width="986" height="657" loading="lazy" class="rotate" alt="Blueberries" title="Blueberries">
+                <img src="assets/about/about-portrait.jpg" width="986" height="657" loading="lazy" class="rotate" alt="Kayla Self Portrait" title="Kayla Self Portrait">
               </figure>
          
         </div>
@@ -186,6 +186,25 @@
         <script>
           document.getElementById("copyright-years").textContent +=
             new Date().getFullYear();
+            document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.custom-cursor');
+  const links = document.querySelectorAll('a, button'); // Update selectors as needed
+
+  if (!cursor) {
+    console.error('Custom cursor element not found!');
+    return;
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  links.forEach((link) => {
+    link.addEventListener('mouseenter', () => cursor.classList.add('expand'));
+    link.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
+  });
+});
         </script>
       </li>
        
@@ -195,5 +214,8 @@
     </Section>
       
     </ul>
+    <div class="custom-cursor">
+  <span class="cursor-arrow">view</span>
+</div>
   </body>
 </html>

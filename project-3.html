@@ -304,6 +304,25 @@
       };
 
       window.addEventListener("scroll", myScrollFunc);
+      document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.custom-cursor');
+  const links = document.querySelectorAll('a, button'); // Update selectors as needed
+
+  if (!cursor) {
+    console.error('Custom cursor element not found!');
+    return;
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  links.forEach((link) => {
+    link.addEventListener('mouseenter', () => cursor.classList.add('expand'));
+    link.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
+  });
+});
     </script>
   </body>
 </html>
