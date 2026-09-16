@@ -11,7 +11,6 @@
 */
 .masonry-grid {
   transition: all 0.5s ease-in-out;
-  column-gap: 2rem;
   column-fill: initial;
 }
 
@@ -20,7 +19,7 @@
      - `vertical-align: top` ensures items align at the top of the column
   */
 .masonry-item {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: inline-block;
   vertical-align: top;
 }

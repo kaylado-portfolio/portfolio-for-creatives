@@ -159,7 +159,7 @@
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #fbfdf7;
-  --color-bg-selection: #5200ff;
+  --color-bg-selection: #34e57e;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -168,7 +168,7 @@
   --duration-normal: 0.3s; /* Standard transitions (button clicks) */
   --duration-slow: 0.75s; /* Prominent animations (page transitions) */
   /* Rounded Corners */
-  --radius-sm: 0.5rem; /* Small interactive elements */
+  --radius-sm: 0.4rem; /* Small interactive elements */
   --radius-md: 1rem; /* Cards/containers */
   --radius-lg: 2rem; /* Large decorative elements */
   --radius-full: 50%; /* Circles/pills */
@@ -504,7 +504,7 @@ h2 {
 
 h3 {
   font-size: 1.325rem;
-
+  font-weight: 300;
   line-height: 1.2;
   color: var(--h3-color);
 }
@@ -514,11 +514,11 @@ h4 {
   line-height: 1.2;
   letter-spacing: 0.04em;
   color: var(--h4-color);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h5 {
-  font-size: rem;
+  font-size: 1rem;
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h5-color);
@@ -540,8 +540,7 @@ p {
   font-size: 1rem;
   line-height: 1.3;
 
-  font-weight: 300;
-  letter-spacing: 0.04em;
+  font-weight: 400;
 }
 
 .strong {
@@ -563,7 +562,9 @@ sup {
 .accent-text {
   font-family: var(--font-family-project-accent);
 }
-
+.italic {
+  font-style: italic;
+}
 /* ------------------------------------------------------------------ */
 /* 🎨 Custom Class Styles for Headlines, Projects, and Highlights     */
 /* Use these utility classes to style key text elements across pages  */
@@ -771,7 +772,6 @@ a.nav-link-primary:hover {
 }
 .nav-branding-item {
   padding: var(--padding-tiny);
-  width: 15rem;
 }
 
 .nav-branding-logo {
@@ -1012,7 +1012,6 @@ a.nav-link-primary:hover {
 
 .main-work-section {
   flex: 1;
-  padding: var(--padding-medium);
   padding-top: var(--padding-tiny);
 }
 
@@ -1150,7 +1149,7 @@ a.nav-link-primary:hover {
 .zoom-container {
   width: 100%;
   overflow: hidden; /* Hides the zoomed portion outside the container */
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .zoom-container img {
@@ -1248,7 +1247,6 @@ a.nav-link-primary:hover {
 .footer-global {
   display: grid;
   grid-template-columns: 1fr; /* Single column layout */
-  grid-gap: 3rem; /* Consistent spacing between sections */
   min-height: auto; /* Allows footer to expand based on content, no fixed height */
   padding: var(--padding-medium); /* Internal spacing */
   width: 70%;
@@ -1416,7 +1414,6 @@ a.nav-link-primary:hover {
 /* Sidebar Styles */
 .project-aside {
   width: 100%;
-  padding: var(--padding-small);
   display: flex;
   flex-direction: column;
   color: var(--color-text-project-sidebar);
@@ -1460,6 +1457,13 @@ a.nav-link-primary:hover {
 .row-3 {
   margin-top: 1.5rem;
 }
+.col-1 {
+  width: 100%;
+}
+.indent {
+  padding-left: 2rem;
+}
+
 /* Project image styling */
 .project-image {
   width: 100%;
@@ -1711,7 +1715,6 @@ to keep your styles reusable and consistent.
   }
   .no-height {
     min-height: auto;
-    padding: var(--padding-tiny);
   }
   .width-third {
     width: 25%;
@@ -1724,15 +1727,15 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4.275rem;
+    font-size: 2.275rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .h4 {
@@ -1744,7 +1747,7 @@ to keep your styles reusable and consistent.
   }
 
   .h5 {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
     line-height: 1.2;
 
     color: var(--h4-color);
@@ -1763,7 +1766,7 @@ to keep your styles reusable and consistent.
   .h2-full-width {
     width: 80%;
     padding: var(--padding-small);
-    padding-top: var(--padding-large);
+    padding-top: var(--padding-medium);
   }
   .h5-full-width {
     padding: var(--padding-small);
@@ -1821,7 +1824,7 @@ to keep your styles reusable and consistent.
 
   .hero-headline-wrapper {
     padding-top: var(--padding-small);
-    min-height: 70vh;
+    min-height: 10vh;
   }
 
   .full-width-headline-wrapper {
@@ -1891,7 +1894,7 @@ to keep your styles reusable and consistent.
   /* Sidebar on Large Devices */
 
   .project-aside {
-    width: 35%;
+    width: 25%;
     height: 80vh;
     position: -webkit-sticky;
     position: sticky;
@@ -1902,7 +1905,7 @@ to keep your styles reusable and consistent.
   /* Main Project Image Area on Large Devices */
 
   .project-details {
-    width: 65%;
+    width: 75%;
   }
 
   .project-image-container,
@@ -1958,6 +1961,7 @@ to keep your styles reusable and consistent.
   .footer-global {
     padding-right: var(--padding-medium);
     padding-bottom: 0;
+    padding-top: 0;
     padding-left: var(--padding-medium);
     grid-template-columns: 1fr 1fr 2fr; /* Three equal columns */
   }
