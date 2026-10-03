@@ -32,11 +32,11 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Eczar Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&display=swap");
+/* DM Sans Font (for headers or special text) */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-/* Rubik Font (clean and modern for body text) */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
+/* DM Mono (clean and modern for body text) */
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 /* Inter Font (great for readability and minimal design) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -110,7 +110,7 @@
   --color-text-primary: #262626;
   --color-text-secondary: #262626;
   --color-accent-primary: #262626;
-  --color-accent-secondary: #ff2e7e;
+  --color-accent-secondary: #00ff08;
   --color-overlay-primary: rgb(38, 38, 38, 0.85);
   --color-highlight: lemonchiffon;
   --color-fallback: #f7faf4; /* Fallback color for glitch effect on 404 page */
@@ -135,15 +135,15 @@
   --color-text-work-grid-title: #f7faf4;
   /* Link States */
   --color-link: #262626;
-  --color-link-hover: #ff2e7e;
+  --color-link-hover: #00ff08;
   --color-link-visited: #262626;
   /* Navigation */
   --color-nav-link: #262626;
-  --color-nav-link-hover: #ff2e7e;
+  --color-nav-link-hover: #00ff08;
   --color-nav-arrow: #262626;
-  --color-nav-arrow-hover: #ff2e7e;
+  --color-nav-arrow-hover: #00ff08;
   --color-nav-arrow-stroke: #262626;
-  --color-nav-arrow-stroke-hover: #ff2e7e;
+  --color-nav-arrow-stroke-hover: #00ff08;
   /* Components */
   --color-bg-full-width: #f7faf4;
   --color-bg-project-description: #f7faf4;
@@ -217,6 +217,7 @@ label {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
   cursor: none !important;
+
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
 }
@@ -242,9 +243,9 @@ label {
 }
 
 .custom-cursor.expand {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(93, 192, 254, 0.882);
+  width: 30px;
+  height: 15px;
+  background-color: #cace27;
   backdrop-filter: blur(2px);
 }
 
@@ -507,6 +508,7 @@ h3 {
   font-weight: 300;
   line-height: 1.2;
   color: var(--h3-color);
+  letter-spacing: 0.5px;
 }
 
 h4 {
@@ -520,14 +522,15 @@ h4 {
 h5 {
   font-size: 1rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
   color: var(--h5-color);
 }
 
 h6 {
-  font-size: 2rem;
-  line-height: 1.2;
-
+  font-size: 0.8rem;
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: "DM Mono";
+  margin-bottom: 1rem;
   color: var(--h6-color);
 }
 
@@ -537,9 +540,8 @@ h6 {
 /* ------------------------------------------------------------------ */
 
 p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.3;
-
   font-weight: 400;
 }
 
@@ -607,7 +609,7 @@ sup {
 .h2-full-width {
   width: 100%;
   padding: var(--padding-small);
-  padding-top: var(--padding-ultra);
+  padding-top: var(--padding-medium);
 }
 
 .h4-half-width {
@@ -628,7 +630,7 @@ sup {
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 1rem;
   color: var(--color-accent-primary);
 }
@@ -688,7 +690,7 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
-  font-weight: 400;
+  font-weight: 500;
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
@@ -879,7 +881,7 @@ a.nav-link-primary:hover {
   background-color: #000;
   color: var(--color-bg);
   border-radius: 60px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .spacing-minimal {
   margin-bottom: 1rem;
@@ -1012,7 +1014,6 @@ a.nav-link-primary:hover {
 
 .main-work-section {
   flex: 1;
-  padding-top: var(--padding-tiny);
 }
 
 /* Padding around work grid and project page */
@@ -1278,7 +1279,7 @@ a.nav-link-primary:hover {
 .footer-full-width {
   grid-column: 1 / 2;
   grid-row: 4 / 5;
-  text-align: center; /* Center copyright text */
+  text-align: left; /* Center copyright text */
   align-self: end; /* Push to bottom */
 }
 
@@ -1287,15 +1288,19 @@ a.nav-link-primary:hover {
 /* ------------------------------- */
 .footer-list {
   margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 .footer-awards-list {
   margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 .footer-works-list {
   margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 .footer-socials-list {
   margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1460,8 +1465,20 @@ a.nav-link-primary:hover {
 .col-1 {
   width: 100%;
 }
+.col-3 {
+  width: 85%;
+}
+/* Indent for project details */
 .indent {
   padding-left: 2rem;
+}
+/* Small header */
+.play-header {
+  padding-left: var(--padding-small);
+}
+/* To add space below section */
+.space {
+  padding-bottom: var(--padding-large);
 }
 
 /* Project image styling */
@@ -1727,7 +1744,7 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 2.275rem;
+    font-size: 1.9rem;
   }
 
   h2 {
@@ -1735,7 +1752,9 @@ to keep your styles reusable and consistent.
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    font-weight: 300;
   }
 
   .h4 {
@@ -1754,9 +1773,10 @@ to keep your styles reusable and consistent.
   }
 
   .h6 {
-    font-size: 2rem;
-    line-height: 1.2;
-
+    font-size: 0.9rem;
+    line-height: 1.3;
+    font-weight: 400;
+    font-family: "DM Mono";
     color: var(--h6-color);
   }
 
@@ -1877,6 +1897,10 @@ to keep your styles reusable and consistent.
   .work-sidebar-wrapper {
     padding: var(--padding-small);
   }
+  /* To add space below section */
+  .space {
+    padding-bottom: var(--padding-large);
+  }
 
   /* Project Page Flex Direction on Large Devices */
 
@@ -1992,6 +2016,7 @@ to keep your styles reusable and consistent.
     grid-column: 1 / 4; /* Spans all three columns */
     text-align: left;
     align-self: end; /* Aligns content to bottom */
+    padding-bottom: var(--padding-tiny);
   }
 
   /* Work Sidebar on Large Devices */

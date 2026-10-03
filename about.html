@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-      Free Creative Portfolio Template: October 2025 Version | About Page
+      Free Creative Portfolio Template: October 2025 Version | Play Page
     </title>
     <meta
       name="description"
@@ -25,16 +25,23 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
-    <script
-      src="https://kit.fontawesome.com/b2f983b3d8.js"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
       crossorigin="anonymous"
-    ></script>
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/masonry.css" />
+    <link rel="stylesheet" href="./lightbox2/dist/css/lightbox.min.css" />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
-  <body class="hero about-page">
-    <header class="hero-header">
-      <ul class="nav-branding">
+  <body>
+    <section class="hero">
+      <header>
+        
+<ul class="nav-branding">
           <!-- Logo (standalone LI) -->
             
           
@@ -56,12 +63,16 @@
         
         
         </ul>
-    <main class="main-work-section">
+        
+        
+        </ul>
+      </header>
+      <main class="main-work-section space">
       
       <div class="flex-row padding-large about-page">
         <div class="col-2">
       <figure class="project-image">
-                <img src="assets/about/about-portrait.jpg" width="986" height="657" loading="lazy" class="rotate" alt="Kayla Self Portrait" title="Kayla Self Portrait">
+                <img src="assets/about/kayla-do-about-me3.jpg" width="986" height="657" loading="lazy" class="rotate" alt="Kayla Self Portrait" title="Kayla Self Portrait">
               </figure>
          
         </div>
@@ -82,25 +93,103 @@
       </a>
         </div>
       </div>
-    </header>
-    
- 
-      
     </main>
-<Section class="footer-background">
+      
+      
+    </section>
     
+
+    <Section class="footer-background">
+    <div>
+      <footer class="hero-footer">
+        <h1 class="h2-full-width">Thanks for stopping by^ </h1>
+      </footer>
+    </div>
+    <ul class="footer-global">
+      <li class="footer-tagline">
+        <h5>Want to see more?</h5>
+
+        <ul class="footer-list">
+          <li class="footer-item">
+            
+            <a href="play.html">→ Fun Page</a>
+          </li>
+          <li class="footer-item">
+            <a href="> 404.html">→ 404 page</a>
+          </li>
+           <li class="footer-item">
+            
+            <a href="project-7-typeface.html">→ Typefaces</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="footer-highlights">
+        <h5>Let's Connect :]</h5>
+        <ul class="footer-awards-list">
+          <li class="footer-item">
+            <a href="mailto:kaylado@gmail.com">→ Kaylado@gmail.com</a>
+          </li>
+          <li class="footer-item">
+      
+          </li>
+          <li class="footer-item">
+            <a href="#"> </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="footer-contact-social">
+        <h5>See me online</h5>
+        <ul class="footer-socials-list">
+          <li class="footer-item">
+            <a href="https://www.instagram.com/dsgn.by.kay/">→ Instagram</a>
+          </li>
+          <li class="footer-item">
+            <a href="https://www.linkedin.com/in/kayla-do-122811295/"
+              >→ LinkedIn </a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/kayla-do">→ Behance</a>
+          </li>
+        </ul>
+      </li>
       <li class="footer-full-width">
         <li class="footer-full-width">
         <h5><a href="#top">Back to the top</a></h5>
         <h5 class="footer-fineprint">
-          © <span id="copyright-years">2020-</span>. Made with
-          <span>❤</span>
-          by Kayla Do.
+          © <span>Kayla Do</span>
         </h5>
         <script>
           document.getElementById("copyright-years").textContent +=
             new Date().getFullYear();
-            document.addEventListener('DOMContentLoaded', () => {
+        </script>
+      </li>
+       
+        
+      </li>
+    </ul>
+    </Section>
+
+    <div class="flier">
+      <img src="assets/branding-images/cucumber.png" alt="Describe your image" />
+    </div>
+
+    <script>
+      myID = document.getElementById("myID");
+
+      var myScrollFunc = function () {
+        var y = window.scrollY;
+        if (y >= 800) {
+          myID.className = "bottomMenu show";
+        } else {
+          myID.className = "bottomMenu hide";
+        }
+      };
+
+      window.addEventListener("scroll", myScrollFunc);
+      document.addEventListener('DOMContentLoaded', () => {
   const cursor = document.querySelector('.custom-cursor');
   const links = document.querySelectorAll('a, button'); // Update selectors as needed
 
@@ -119,17 +208,9 @@
     link.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
   });
 });
-        </script>
-      </li>
-       
-        
-      </li>
-    </ul>
-    </Section>
-      
-    </ul>
+    </script>
     <div class="custom-cursor">
-  <span class="cursor-arrow">view</span>
+  <span class="cursor-arrow"></span>
 </div>
   </body>
 </html>
