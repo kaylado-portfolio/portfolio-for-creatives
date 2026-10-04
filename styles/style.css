@@ -39,7 +39,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 /* Inter Font (great for readability and minimal design) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 /*
 
@@ -102,23 +102,23 @@
 
 :root {
   /* Typography */
-  --font-family-body: "DM Sans 36pt", sans-serif;
-  --font-family-heading: "DM Sans 36pt", sans-serif;
-  --font-family-project-title: "DM Sans 36pt", sans-serif;
+  --font-family-body: "Dm Sans", sans-serif;
+  --font-family-heading: "Dm Sans", sans-serif;
+  --font-family-project-title: "Dm Sans", sans-serif;
   --font-family-project-accent: "DM Mono", sans-serif;
   /* Core Colours */
   --color-text-primary: #262626;
   --color-text-secondary: #262626;
   --color-accent-primary: #262626;
-  --color-accent-secondary: #00ff08;
+  --color-accent-secondary: #4bffba;
   --color-overlay-primary: rgb(38, 38, 38, 0.85);
   --color-highlight: lemonchiffon;
-  --color-fallback: #f7faf4; /* Fallback color for glitch effect on 404 page */
+  --color-fallback: #eaebe9; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #f7faf4;
-  --color-bg-about: #f7faf4;
-  --color-bg-footer: #f7faf4;
-  --color-bg-holding-page: #f7faf4;
+  --color-bg: #eaebe9;
+  --color-bg-about: #eaebe9;
+  --color-bg-footer: #eaebe9;
+  --color-bg-holding-page: #eaebe9;
   /* Headings */
   --h1-color: #262626;
   --h2-color: #262626;
@@ -135,15 +135,15 @@
   --color-text-work-grid-title: #f7faf4;
   /* Link States */
   --color-link: #262626;
-  --color-link-hover: #00ff08;
+  --color-link-hover: #4bffba;
   --color-link-visited: #262626;
   /* Navigation */
   --color-nav-link: #262626;
-  --color-nav-link-hover: #00ff08;
+  --color-nav-link-hover: #4bffba;
   --color-nav-arrow: #262626;
-  --color-nav-arrow-hover: #00ff08;
+  --color-nav-arrow-hover: #4bffba;
   --color-nav-arrow-stroke: #262626;
-  --color-nav-arrow-stroke-hover: #00ff08;
+  --color-nav-arrow-stroke-hover: #4bffba;
   /* Components */
   --color-bg-full-width: #f7faf4;
   --color-bg-project-description: #f7faf4;
@@ -245,7 +245,7 @@ label {
 .custom-cursor.expand {
   width: 30px;
   height: 15px;
-  background-color: #cace27;
+  background-color: #4bffba;
   backdrop-filter: blur(2px);
 }
 
@@ -534,6 +534,12 @@ h6 {
   color: var(--h6-color);
 }
 
+h1,
+h2 {
+  font-family: var(--font-family-heading);
+  font-variation-settings: "opsz" 36;
+}
+
 /* ------------------------------------------------------------------ */
 /* 📝 Paragraph and Text Styles                                       */
 /* Base text styles for body copy, bold, italic, and fine print       */
@@ -574,11 +580,9 @@ sup {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: var(--color-bg); /* Uses your brand's dominant color */
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
   padding: var(--padding-tiny);
-  font-weight: 500;
   width: 100%;
 }
 
@@ -669,9 +673,170 @@ a:visited {
 
 /* Hover — when a user hovers their mouse over the link */
 a:hover {
-  color: var(--color-link-hover);
+  color: #4bffba;
 }
 
+/* hover sparkle animation */
+.sparkle-button {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: visible;
+}
+
+/* Hidden at rest */
+.sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Burst on hover */
+.sparkle-button:hover .sparkle {
+  animation-fill-mode: forwards;
+}
+
+/* ✦ */
+.sparkle-button:hover .sparkle-1 {
+  animation: burst-1 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ✤ */
+.sparkle-button:hover .sparkle-2 {
+  animation: burst-2 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ✽ */
+.sparkle-button:hover .sparkle-3 {
+  animation: burst-3 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ★ */
+.sparkle-button:hover .sparkle-4 {
+  animation: burst-4 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ○ */
+.sparkle-button:hover .sparkle-5 {
+  animation: burst-5 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ● */
+.sparkle-button:hover .sparkle-6 {
+  animation: burst-6 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* TOP LEFT */
+@keyframes burst-1 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(-42px, -27px) scale(1.15) rotate(12deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-36px, -22px) scale(1) rotate(18deg);
+  }
+}
+
+/* TOP RIGHT */
+@keyframes burst-2 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(34px, -34px) scale(0.85) rotate(-15deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(28px, -29px) scale(0.75) rotate(-25deg);
+  }
+}
+
+/* BOTTOM LEFT */
+@keyframes burst-3 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(-48px, 23px) scale(1.1) rotate(-8deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-42px, 18px) scale(0.9) rotate(-15deg);
+  }
+}
+
+/* BOTTOM RIGHT */
+@keyframes burst-4 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(47px, 28px) scale(1.2) rotate(10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(40px, 22px) scale(0.9) rotate(18deg);
+  }
+}
+
+/* LITTLE CIRCLE LEFT */
+@keyframes burst-5 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-63px, 3px) scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-56px, -2px) scale(1);
+  }
+}
+
+/* LITTLE DOT RIGHT */
+@keyframes burst-6 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(61px, -8px) scale(1.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(54px, -4px) scale(1);
+  }
+}
 /* Focus — when a link is focused (keyboard navigation) */
 a:focus {
   outline: 1px solid var(--color-accent-primary);
@@ -691,6 +856,7 @@ a:active {
 a.nav-link-primary {
   color: var(--color-nav-link);
   font-weight: 500;
+  font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
@@ -728,8 +894,15 @@ a.nav-link-primary:hover {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: var(--color-nav-arrow-stroke-hover);
 }
+/* arrow animation */
+.awards-row .awards-arrow {
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
 /* 
+
 
 ██   ██ ███████ ██████   ██████  
 ██   ██ ██      ██   ██ ██    ██ 
@@ -753,6 +926,7 @@ a.nav-link-primary:hover {
 .hero-header {
   min-height: 2rem; /* Space reserved for logo + nav */
   width: 100vw;
+  background-color: #cace27;
 }
 .hero-background {
   background: url(../assets/work-page/website-background.png);
@@ -764,14 +938,15 @@ a.nav-link-primary:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-small);
-  align-items: center;
+  padding: var(--padding-tiny);
+  align-items: flex-end;
 }
 
 .nav-branding-group {
   display: flex;
   flex-direction: row;
 }
+
 .nav-branding-item {
   padding: var(--padding-tiny);
 }
@@ -883,12 +1058,6 @@ a.nav-link-primary:hover {
   border-radius: 60px;
   font-size: 0.9rem;
 }
-.spacing-minimal {
-  margin-bottom: 1rem;
-}
-.spacing-tiny {
-  margin-bottom: 0.3rem;
-}
 
 .about-page {
   display: flex;
@@ -983,11 +1152,11 @@ a.nav-link-primary:hover {
 /* button style */
 .btn-primary {
   display: inline-block;
-  background: var(--color-bg-selection);
+  background: var(--color-bg-about);
   color: black;
   text-decoration: none;
   padding: 0 1.5rem;
-  border-radius: 4rem;
+  border-radius: 1.5rem;
   font-family: "DM sans", sans-serif;
   position: relative;
   overflow: hidden;
@@ -996,6 +1165,22 @@ a.nav-link-primary:hover {
   line-height: 2.5rem;
   min-height: 2.5rem;
 }
+.btn-secondary {
+  display: inline-block;
+  background: var(--color-bg-selection);
+  color: black;
+  text-decoration: none;
+  padding: 0 1.5rem;
+  border-radius: 1.5rem;
+  font-family: "DM sans", sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s ease-in-out;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+}
+
 /* 
 
 ██     ██  ██████  ██████  ██   ██     ██████   █████   ██████  ███████ 
@@ -1150,7 +1335,6 @@ a.nav-link-primary:hover {
 .zoom-container {
   width: 100%;
   overflow: hidden; /* Hides the zoomed portion outside the container */
-  border-radius: var(--radius-sm);
 }
 
 .zoom-container img {
@@ -1226,10 +1410,57 @@ a.nav-link-primary:hover {
   grid-column: 1 / 2; /* Text spans the first column */
   grid-row: 2 / 3; /* Text spans the second row */
 }
+.about-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: auto;
+  width: 70%;
+}
+
 .about-image {
   padding: var(--padding-small);
 }
-
+/* Awards section */
+.awards-section {
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-top: var(--padding-large);
+  padding-bottom: var(--padding-large);
+  position: relative;
+  margin: 0px auto;
+}
+.awards-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  border-top: 1px solid rgb(128, 128, 128);
+}
+.awards-row .awards-year {
+  font-size: 0.85rem;
+  color: rgb(122, 122, 118);
+  width: 40px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.awards-row .awards-title {
+  font-size: clamp(16px, 2vw, 20px);
+  letter-spacing: -0.01em;
+  margin: 0px;
+  flex: 1 1 0%;
+  overflow: hidden;
+}
+.awards-row .awards-project {
+  font-size: 12px;
+  color: rgb(122, 122, 118);
+  max-width: 200px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.awards-row .awards-arrow {
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
 /* 
 
 ███████  ██████   ██████  ████████ ███████ ██████  
@@ -1279,7 +1510,7 @@ a.nav-link-primary:hover {
 .footer-full-width {
   grid-column: 1 / 2;
   grid-row: 4 / 5;
-  text-align: left; /* Center copyright text */
+  text-align: right; /* Center copyright text */
   align-self: end; /* Push to bottom */
 }
 
@@ -1287,20 +1518,20 @@ a.nav-link-primary:hover {
 /* 📜 Reusable footer list styles */
 /* ------------------------------- */
 .footer-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0.5rem;
 }
 .footer-awards-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0.5rem;
 }
 .footer-works-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0.5rem;
 }
 .footer-socials-list {
-  margin-bottom: 2rem;
   margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1340,7 +1571,8 @@ a.nav-link-primary:hover {
   justify-content: center;
   flex-direction: column;
   text-align: left;
-  padding: var(--padding-small);
+  padding-bottom: var(--padding-small);
+  padding-right: var(--padding-small);
 }
 
 .hero-footer-navigation {
@@ -1440,7 +1672,6 @@ a.nav-link-primary:hover {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  background: var(--color-bg-project-description);
 
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
@@ -1450,7 +1681,7 @@ a.nav-link-primary:hover {
 .col-2,
 .col-4 {
   width: 100%;
-  padding: var(--padding-medium);
+  padding: var(--padding-small);
 }
 .row-2 {
   margin-top: 1rem;
@@ -1468,6 +1699,24 @@ a.nav-link-primary:hover {
 .col-3 {
   width: 85%;
 }
+
+.description-columns {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-small);
+}
+.project-list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: var(--padding-small);
+  z-index: 2;
+}
 /* Indent for project details */
 .indent {
   padding-left: 2rem;
@@ -1479,6 +1728,15 @@ a.nav-link-primary:hover {
 /* To add space below section */
 .space {
   padding-bottom: var(--padding-large);
+}
+.spacing-medium {
+  padding-bottom: var(--padding-small);
+}
+.spacing-minimal {
+  margin-bottom: 1rem;
+}
+.spacing-tiny {
+  margin-bottom: 0.3rem;
 }
 
 /* Project image styling */
@@ -1498,6 +1756,14 @@ a.nav-link-primary:hover {
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+.project-multi-image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: var(--padding-small);
 }
 /* Project details section */
 .project-details {
@@ -1537,9 +1803,12 @@ a.nav-link-primary:hover {
   margin-bottom: 1rem;
 }
 .project-item {
-  font-size: 1rem;
-  line-height: 1.2; /* Consistent line height for project items to improve spacing */
-  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: "DM Mono";
+  margin-bottom: 1rem;
+  color: var(--h6-color);
 }
 
 /*
@@ -1792,11 +2061,9 @@ to keep your styles reusable and consistent.
     padding: var(--padding-small);
   }
   .hero-headline {
-    color: var(--color-accent-primary); /* Uses your brand's dominant color */
     max-width: 40ch; /* Optimal line length for readability (~40 characters) */
     text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
     padding: var(--padding-small);
-    font-weight: 500;
     width: 80%;
   }
   .hero-headline {
@@ -1935,8 +2202,10 @@ to keep your styles reusable and consistent.
   .project-image-container,
   .project-description-container {
     flex-direction: row;
-    gap: 10rem;
+    gap: 1rem;
     justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .project-margin {
     padding: 0 180px;
@@ -1951,7 +2220,7 @@ to keep your styles reusable and consistent.
     width: 40%;
   }
   .col-4 {
-    width: 25%;
+    width: 35%;
   }
 
   .project-navigation {
@@ -2014,7 +2283,7 @@ to keep your styles reusable and consistent.
   .footer-full-width {
     grid-row: 2 / 3;
     grid-column: 1 / 4; /* Spans all three columns */
-    text-align: left;
+    text-align: right;
     align-self: end; /* Aligns content to bottom */
     padding-bottom: var(--padding-tiny);
   }
