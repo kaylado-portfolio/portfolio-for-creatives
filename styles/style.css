@@ -1063,6 +1063,7 @@ a.nav-link-primary:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
 }
 
 /* Footer marquee animation */
@@ -1344,7 +1345,7 @@ a.nav-link-primary:hover {
 }
 
 .zoom-container img:hover {
-  transform: scale(1.2); /* Zooms the image by 20% on hover */
+  transform: scale(1.1); /* Zooms the image by 20% on hover */
 }
 
 ███████ ██ ██████  ███████ ██████   █████  ██████  
