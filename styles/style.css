@@ -159,7 +159,7 @@
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #fbfdf7;
-  --color-bg-selection: #34e57e;
+  --color-bg-selection: #ff8bd0;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -928,7 +928,7 @@ a.nav-link-primary:hover {
   background-color: #c6c6c6;
 }
 .hero-background {
-  background: url(../assets/work-page/website-background.png);
+  background: url(../assets/work-page/stars.gif);
 
   background-repeat: no-repeat;
 }
@@ -1739,6 +1739,9 @@ a.nav-link-primary:hover {
 .spacing-tiny {
   margin-bottom: 0.3rem;
 }
+.spacing-large {
+  margin-bottom: 2rem;
+}
 
 /* Project image styling */
 .project-image {
@@ -2217,7 +2220,6 @@ to keep your styles reusable and consistent.
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
-    padding: 2rem;
   }
   .project-margin {
     padding: 0 180px;
