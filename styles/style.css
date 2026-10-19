@@ -1844,6 +1844,11 @@ a.nav-link-primary:hover {
   margin-bottom: 0.5rem;
   color: var(--h6-color);
 }
+.list-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
 
 /*
 
@@ -1927,20 +1932,23 @@ a.nav-link-primary:hover {
 /* A great 404 page is a chance to leave a memorable impression when visitors land on a page that doesn't exist. Consider customizing this page to be more engaging, humorous, or on-brand with your site. Check out error.css for the gradient and glitch effect. */
 
 .error-headline-wrapper {
-  width: 85%;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-small);
   text-align: center;
   margin: 0 auto;
+  padding-top: var(--padding-medium);
+  padding-bottom: var(--padding-medium);
 }
 
 .error-page-animation {
   height: 30rem;
+}
+.error-button {
+  font-size: 2rem;
 }
 
 /*
@@ -2163,12 +2171,6 @@ to keep your styles reusable and consistent.
   .right-aligned {
     text-align: right;
   }
-  .error-headline-wrapper {
-    padding-top: var(--padding-small);
-    padding-bottom: var(--padding-small);
-    padding-left: var(--padding-ultra);
-    padding-right: var(--padding-ultra);
-  }
 
   .error-404 {
     font-size: 5rem;
@@ -2290,6 +2292,10 @@ to keep your styles reusable and consistent.
     flex-shrink: 0;
     white-space: nowrap;
     width: fit-content;
+  }
+  /* error styles */
+  .error-headline-wrapper {
+    height: 80vh;
   }
 
   /* Column styles for two-column and four-column layouts (desktop) */
