@@ -485,7 +485,7 @@ svg {
 h1 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--h1-color);
   letter-spacing: 0.01em;
 }
@@ -581,7 +581,7 @@ sup {
 
 /* Large project title — appears on individual project pages */
 .project-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.3;
   font-weight: 400;
   font-family: "DM Mono";
@@ -670,6 +670,9 @@ a:visited {
 /* Hover — when a user hovers their mouse over the link */
 a:hover {
   color: #4bffba;
+}
+.a {
+  position: relative;
 }
 
 /* hover sparkle animation */
@@ -922,8 +925,14 @@ a.nav-link-primary:hover {
 }
 .hero-header {
   min-height: 2rem; /* Space reserved for logo + nav */
-  width: 100vw;
-  background-color: #c6c6c6;
+}
+.project-page-wrapper .hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  min-height: auto;
 }
 .hero-background {
   background: url(../assets/work-page/stars.gif);
@@ -937,7 +946,6 @@ a.nav-link-primary:hover {
   justify-content: space-between;
   padding: var(--padding-tiny);
   align-items: center;
-  background-color: #c6c6c6;
 }
 .nav-branding-work {
   display: flex;
@@ -1038,8 +1046,14 @@ a.nav-link-primary:hover {
   margin: 1rem;
 }
 .project-classification {
-  gap: 0.5rem;
-  line-height: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-bg);
+  color: var(--color-bg);
+  border-radius: 60px;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  width: fit-content;
 }
 .project-page-classification {
   grid-column: 1 / 2;
@@ -1048,9 +1062,6 @@ a.nav-link-primary:hover {
   gap: 0.5rem;
 }
 .project-classification p {
-  padding: 0.5rem 1rem;
-  border: 1px solid #262626;
-  border-radius: 60px;
   font-size: 1rem;
 }
 .project-award p {
@@ -1069,10 +1080,24 @@ a.nav-link-primary:hover {
   display: flex;
   width: 100%;
 }
+.about-page-grid-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+.about-extra {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  min-height: 0;
+  box-sizing: border-box;
+  align-items: start;
+}
 
 .about-extra {
   height: 15rem;
-  background-color: #c6c6c6;
 }
 
 /* Footer marquee animation */
@@ -1297,6 +1322,30 @@ a.nav-link-primary:hover {
   position: relative;
   overflow: hidden;
 }
+/* Underline fill that appears under work description */
+.work-grid-project-title {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.15em 0.4em;
+}
+
+.work-grid-project-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  background-color: #adf7e3;
+  border-radius: 999px;
+  z-index: -1;
+  transition: width 0.35s ease;
+}
+
+.work-grid-project-title:hover::before {
+  width: 100%;
+}
 
 /* Overlay (appears on hover) */
 .overlay {
@@ -1424,6 +1473,19 @@ a.nav-link-primary:hover {
 .about-image {
   padding: var(--padding-sm);
 }
+
+.fun-about-image {
+  width: 200px;
+}
+.fun-about-image img.rotate {
+  width: 120px;
+  height: auto;
+}
+.about-extra {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
 /* award list styles */
 .title {
   font-size: 1.9rem;
@@ -1475,6 +1537,10 @@ a.nav-link-primary:hover {
 .about-page > .col-2 {
   width: 100%;
 }
+.stack {
+  display: flex;
+  flex-direction: column;
+}
 /* Awards section */
 .awards-section {
   padding-top: var(--padding-large);
@@ -1521,7 +1587,26 @@ a.nav-link-primary:hover {
   text-align: right;
   flex-shrink: 0;
 }
+.awards-row {
+  position: relative;
+  isolation: isolate;
+}
+.awards-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  background-color: #adf7e3;
+  border-radius: 999px;
+  z-index: -1;
+  transition: width 0.6s ease;
+}
 
+.awards-row:hover::before {
+  width: 100%;
+}
 .awards-row .awards-arrow {
   flex-shrink: 0;
   transform: rotate(0deg);
@@ -1530,6 +1615,32 @@ a.nav-link-primary:hover {
 .awards-title {
   font-family: var(--font-family-project-accent);
 }
+/* Underline fill that appears under about descriptions */
+.about-info-title {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.15em 0.4em;
+  color: var(--color-accent-primary);
+}
+
+.about-info-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  background-color: #adf7e3;
+  border-radius: 999px;
+  z-index: -1;
+  transition: width 0.35s ease;
+}
+
+.about-info-title:hover::before {
+  width: 100%;
+}
+
 /* 
 
 ███████  ██████   ██████  ████████ ███████ ██████  
@@ -1660,6 +1771,7 @@ a.nav-link-primary:hover {
 .footer-fineprint {
   font-size: 0.875rem; /* Slightly smaller for disclaimers or captions */
   color: var(--color-text-secondary); /* Themed color */
+  padding-bottom: 0.5rem;
 }
 
 /* New item badges */
@@ -1711,6 +1823,14 @@ a.nav-link-primary:hover {
 .project-full-width {
   width: 100%;
   margin-bottom: 1rem;
+}
+.project-hero-image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Sidebar Styles */
@@ -1877,6 +1997,10 @@ a.nav-link-primary:hover {
   color: #f5f5f5;
   text-transform: uppercase;
 }
+.project-heading {
+  width: 80%;
+  line-height: 1;
+}
 /* Previous/Next Arrow Styles */
 
 .project-navigation {
@@ -1900,6 +2024,17 @@ a.nav-link-primary:hover {
 .arrow {
   padding: 0;
 }
+.arrow-right {
+  color: black;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.award-link:hover .arrow-right {
+  color: #4bffba;
+  transform: translateX(3px);
+}
 
 /* ------------------------------- */
 /* 📜 Project info list styles */
@@ -1909,7 +2044,7 @@ a.nav-link-primary:hover {
   margin-bottom: 1rem;
 }
 .project-item {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.3;
   font-weight: 300;
   font-family: "DM Mono";
@@ -2474,7 +2609,7 @@ to keep your styles reusable and consistent.
     background-color: #262626;
     color: var(--color-bg);
     border-radius: 60px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     flex-shrink: 0;
     white-space: nowrap;
     width: fit-content;
@@ -2573,6 +2708,7 @@ to keep your styles reusable and consistent.
   }
   .footer-headline {
     font-size: 3rem;
+    font-weight: 500;
   }
 
   /* ------------------------------- */
