@@ -2382,6 +2382,13 @@ to keep your styles reusable and consistent.
     width: 5rem;
     /* TODO: Adjust the width of the logo on large devices here. */
   }
+  .logo {
+    fill: black;
+    transition: fill 0.3s ease-in-out;
+  }
+  .logo:hover {
+    fill: rgb(75, 255, 186);
+  }
 
   .hero-headline-wrapper {
     min-height: 10vh;
