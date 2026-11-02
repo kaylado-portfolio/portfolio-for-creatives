@@ -128,7 +128,7 @@
   --h6-color: #262626;
   /* Special Text Colours */
   --color-text-holding-title: #f7faf4;
-  --color-text-project-category: #f7faf4;
+  --color-text-project-category: #7b7b7b;
   --color-text-project-description: #262626;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #262626;
@@ -154,7 +154,7 @@
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #fbfdf7;
-  --color-bg-selection: #ff8bd0;
+  --color-bg-selection: #f89bed;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -633,7 +633,7 @@ sup {
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: var(--color-accent-primary);
+  color: var(--color-text-project-category);
 }
 /* Makes text in all caps */
 .all-caps {
@@ -1187,7 +1187,7 @@ a.nav-link-primary:hover {
 .btn-primary {
   display: inline-block;
   background: var(--color-bg-about);
-  color: black;
+  color: var(--color-accent-primary);
   text-decoration: none;
   padding: 0 1.5rem;
   border-radius: 1.5rem;
@@ -1202,7 +1202,7 @@ a.nav-link-primary:hover {
 .btn-secondary {
   display: inline-block;
   background: var(--color-bg-selection);
-  color: black;
+  color: var(--color-bg);
   text-decoration: none;
   padding: 0 1.5rem;
   border-radius: 1.5rem;
@@ -1329,20 +1329,35 @@ a.nav-link-primary:hover {
   isolation: isolate;
 }
 
-.work-grid-project-title::before {
-  content: "";
+/* Hidden sparkle */
+.work-grid-project-title::after {
+  content: "✦";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 100%;
-  background-color: #adf7e3;
-  border-radius: 0 999px 999px 0;
-  z-index: -1;
-  transition: width 0.35s ease;
+  padding: 0.3rem;
+  font-size: 0.65em;
+  color: var(--color-accent-primary);
+  opacity: 0;
+  transform: scale(0) rotate(-30deg);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease;
+}
+
+/* Sparkle on project hover */
+.work-page-grid-item:hover .work-grid-project-title::after {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .work-grid-project-title:hover::before {
+  width: 100%;
+}
+.work-page-grid-item:hover .zoom-container img {
+  transform: scale(1.05);
+}
+
+/* Title hover fill */
+.work-page-grid-item:hover .work-grid-project-title::before {
   width: 100%;
 }
 
@@ -1390,10 +1405,6 @@ a.nav-link-primary:hover {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease; /* Controls the speed and smoothness */
-}
-
-.zoom-container img:hover {
-  transform: scale(1.1); /* Zooms the image by 20% on hover */
 }
 
 ███████ ██ ██████  ███████ ██████   █████  ██████  
@@ -1593,18 +1604,18 @@ a.nav-link-primary:hover {
 .awards-row::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
+  inset: 0;
+  width: 100%;
   height: 100%;
   background-color: #adf7e3;
-  border-radius: 0 999px 999px 0;
+  border-radius: 999px;
   z-index: -1;
-  transition: width 0.6s ease;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .awards-row:hover::before {
-  width: 100%;
+  opacity: 1;
 }
 .awards-row .awards-arrow {
   flex-shrink: 0;
@@ -1623,16 +1634,16 @@ a.nav-link-primary:hover {
 }
 
 .about-info-title::before {
-  content: "";
+  content: "✦";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 100%;
-  background-color: #adf7e3;
-  border-radius: 0 999px 999px 0;
-  z-index: -1;
-  transition: width 0.35s ease;
+  padding: 0.3rem;
+  font-size: 0.65em;
+  color: var(--color-accent-primary);
+  opacity: 0;
+  transform: scale(0) rotate(-30deg);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease;
 }
 
 .about-info-title:hover::before {
@@ -1741,7 +1752,7 @@ a.nav-link-primary:hover {
 }
 .footer-background {
   background: url(../assets/gif/loop\ falling\ Sticker\ by\ Simon\ Falk\ -\ Find\ &\ Share\ on\ GIPHY.gif);
-  background-color: #c6c6c6;
+  background-color: #b6b6b6;
   background-size: cover;
   background-repeat: no-repeat;
 }
