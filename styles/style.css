@@ -1956,6 +1956,9 @@ a.nav-link-primary:hover {
 .spacing-large {
   margin-bottom: 2rem;
 }
+.spacing-work {
+  margin-bottom: 0.5rem;
+}
 
 /* Project image styling */
 .project-image {
