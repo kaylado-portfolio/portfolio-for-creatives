@@ -115,7 +115,7 @@
   --color-highlight: lemonchiffon;
   --color-fallback: #eaebe9; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #f5f6f5;
+  --color-bg: #f5faff;
   --color-bg-about: #eaebe9;
   --color-bg-footer: #eaebe9;
   --color-bg-holding-page: #eaebe9;
@@ -854,13 +854,21 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
-  font-weight: 500;
+  font-weight: 400;
   font-family: var(--font-family-heading);
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
 }
+a.nav-link-primary-inverse {
+  color: var(--color-accent-primary);
+  font-weight: 400;
+  font-family: var(--font-family-heading);
+}
 
+a.nav-link-primary-inverse:hover {
+  color: var(--color-nav-link-hover);
+}
 /* -------------------------------------------------------------------------- */
 /* 🧭 Previous & Next Project Navigation Arrows                               */
 /* These styles are for the left and right arrows used to move between       */
@@ -935,7 +943,6 @@ a.nav-link-primary:hover {
   min-height: auto;
 }
 .hero-background {
-  background: url(../assets/work-page/stars.gif);
   height: 40vh;
   background-repeat: no-repeat;
 }
@@ -944,24 +951,52 @@ a.nav-link-primary:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-tiny);
+  padding: var(--padding-small);
   align-items: center;
 }
 .nav-branding-work {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--padding-tiny);
+  padding: var(--padding-small);
   align-items: center;
 }
 
 .nav-branding-group {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 
 .nav-branding-item {
   padding: var(--padding-tiny);
+}
+.nav-branding-item-border {
+  padding: var(--padding-tiny);
+  width: fit-content;
+  background-color: var(--color-accent-primary);
+  padding: 4px 8px;
+}
+.nav-branding-item-inverse {
+  padding: var(--padding-tiny);
+  width: fit-content;
+  background-color: var(--color-bg);
+  box-sizing: border-box;
+  width: fit-content;
+  color: var(--color-accent-primary);
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: var(--color-accent-primary);
+  border-image: none;
+  padding: 4px 8px;
+}
+.nav-branding-logo {
+  padding: var(--padding-tiny);
+}
+.header-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .nav-branding-logo {
@@ -1262,8 +1297,8 @@ a.nav-link-primary:hover {
 /* Defining the work page grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid */
-  grid-gap: 2rem; /* Space between grid items */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; /* Creates a responsive grid */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
 }
 
@@ -1306,8 +1341,13 @@ a.nav-link-primary:hover {
 }
 /* Project container for background and padding */
 .project-container {
-  background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
+  width: 100%;
+  height: auto;
+  border: 1.5px dotted var(--color-text-project-category);
+  position: relative;
+  padding: var(--padding-small);
+  box-sizing: border-box;
+  min-width: 0;
 }
 .project-topics {
   flex-flow: row;
@@ -1670,7 +1710,7 @@ a.nav-link-primary:hover {
   grid-template-columns: 1fr; /* Single column layout */
   min-height: auto; /* Allows footer to expand based on content, no fixed height */
   padding-top: 0rem;
-  padding-left: var(--padding-medium); /* Internal spacing */
+  padding-left: var(--padding-small); /* Internal spacing */
   width: 70%;
 
   /* Note: Using 'fr' units ensures proper scaling across devices */
@@ -1752,13 +1792,13 @@ a.nav-link-primary:hover {
 }
 .footer-background {
   background: url(../assets/gif/loop\ falling\ Sticker\ by\ Simon\ Falk\ -\ Find\ &\ Share\ on\ GIPHY.gif);
-  background-color: #b6b6b6;
+  background-color: #b5e8d7;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .hero-footer {
   text-align: left;
-  padding: var(--padding-medium);
+  padding: var(--padding-small);
 }
 
 .hero-footer-navigation {
@@ -1767,7 +1807,12 @@ a.nav-link-primary:hover {
   justify-content: space-between;
   padding: var(--padding-small);
 }
-
+.footer-branding-item {
+  padding: var(--padding-tiny);
+  width: fit-content;
+  background-color: var(--color-accent-primary);
+  padding: 4px 8px;
+}
 /* -------------------------------------------------------------------------- */
 /* ✨ Footer Special Elements                                                 */
 /* -------------------------------------------------------------------------- */
@@ -2072,7 +2117,6 @@ a.nav-link-primary:hover {
 .grid-more-work {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 1rem;
 }
 .more-work-page-grid-item {
   width: 100%;
@@ -2297,7 +2341,7 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
   }
 
   h2 {
@@ -2347,7 +2391,6 @@ to keep your styles reusable and consistent.
   .hero-headline {
     max-width: 40ch; /* Optimal line length for readability (~40 characters) */
     text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
-    width: 80%;
   }
   .hero-headline {
     height: 50%;
@@ -2406,8 +2449,7 @@ to keep your styles reusable and consistent.
     min-height: 10vh;
   }
   .hero-background {
-    background: url(../assets/work-page/stars.gif);
-    height: 60vh;
+    height: 80vh;
     background-repeat: no-repeat;
   }
 
@@ -2528,7 +2570,6 @@ to keep your styles reusable and consistent.
 
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 2rem;
   }
   /* More Work Grid for Large Devices */
   .grid-more-work {
@@ -2655,6 +2696,9 @@ to keep your styles reusable and consistent.
   .col-5 {
     padding-top: var(--padding-large);
   }
+  .col-center {
+    justify-self: center;
+  }
 
   .project-navigation {
     justify-content: flex-start;
@@ -2698,7 +2742,7 @@ to keep your styles reusable and consistent.
     padding-right: var(--padding-medium);
     padding-bottom: 0;
     padding-top: 0;
-    padding-left: var(--padding-medium);
+    padding-left: var(--padding-small);
     grid-template-columns: 1fr 1fr 2fr; /* Three equal columns */
   }
 
@@ -2723,7 +2767,7 @@ to keep your styles reusable and consistent.
     text-align: left;
     padding-bottom: var(--padding-small);
     padding-right: var(--padding-small);
-    padding: var(--padding-medium);
+    padding: var(--padding-small);
   }
   .footer-headline {
     font-size: 3rem;
@@ -2735,10 +2779,13 @@ to keep your styles reusable and consistent.
   /* ------------------------------- */
   .footer-full-width {
     grid-row: 2 / 3;
-    grid-column: 1 / 4; /* Spans all three columns */
-    text-align: right;
-    align-self: end; /* Aligns content to bottom */
+    grid-column: 1 / 4;
     padding-bottom: var(--padding-tiny);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   /* Work Sidebar on Large Devices */
