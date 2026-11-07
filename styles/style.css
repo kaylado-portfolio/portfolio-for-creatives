@@ -128,7 +128,7 @@
   --h6-color: #262626;
   /* Special Text Colours */
   --color-text-holding-title: #f7faf4;
-  --color-text-project-category: #7b7b7b;
+  --color-text-project-category: #a8a8a8;
   --color-text-project-description: #262626;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #262626;
@@ -215,6 +215,11 @@ label {
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 .custom-cursor {
   position: fixed;
@@ -494,7 +499,7 @@ h2 {
   font-size: 1rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
   color: var(--h2-color);
 }
 
@@ -856,6 +861,48 @@ a:hover {
     transform: translate(54px, -4px) scale(0.3);
   }
 }
+
+/* Falling cursor stars */
+.cursor-star {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+
+  font-size: var(--size);
+  color: #feb0f2;
+
+  transform: translate(-50%, -50%);
+  animation: falling-star var(--duration) ease-out forwards;
+
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+@keyframes falling-star {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.3);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -30%) rotate(var(--rotation)) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--drift)), calc(-50% + 100px)) rotate(calc(var(--rotation) + 100deg))
+      scale(0.3);
+  }
+}
+
+/* Disable animation for reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-star {
+    display: none;
+  }
+}
+
 /* Focus — when a link is focused (keyboard navigation) */
 a:focus {
   outline: 1px solid var(--color-accent-primary);
@@ -963,23 +1010,23 @@ a.nav-link-primary-inverse:hover {
   min-height: auto;
 }
 .hero-background {
-  height: 40vh;
+  height: 50vh;
   background-repeat: no-repeat;
 }
 
 .nav-branding {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-small);
-  align-items: center;
+  align-items: flex-start;
 }
 .nav-branding-work {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-small);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .nav-branding-group {
@@ -1030,10 +1077,16 @@ a.nav-link-primary-inverse:hover {
 
 .hero-headline-wrapper {
   width: 100%;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   flex: 1;
-  text-align: center; /* Keeps text centered */
+  gap: 1rem;
+  padding-top: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-icon {
@@ -1356,8 +1409,8 @@ a.nav-link-primary-inverse:hover {
 }
 /* arrow svg */
 .arrow {
-  width: 35px;
-  height: 35px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Individual Work Grid Item */
@@ -1439,6 +1492,20 @@ a.nav-link-primary-inverse:hover {
   transition:
     opacity 0.3s ease,
     transform 0.4s ease;
+}
+.work-page-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1.5px solid var(--color-text-project-category);
+  text-transform: uppercase;
+  cursor: default;
+  scroll-margin-top: 4.5rem;
+}
+.work-page-index {
+  padding-left: var(--padding-small);
+  padding-right: var(--padding-small);
 }
 
 /* Sparkle on project hover */
@@ -1699,18 +1766,6 @@ a.nav-link-primary-inverse:hover {
   position: relative;
   isolation: isolate;
 }
-.awards-row::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #adf7e3;
-  border-radius: 999px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
 
 .awards-row:hover::before {
   opacity: 1;
@@ -1849,8 +1904,7 @@ a.nav-link-primary-inverse:hover {
   text-indent: -0.5rem; /* Pulls text back toward bullet */
 }
 .footer-background {
-  background: url(../assets/gif/loop\ falling\ Sticker\ by\ Simon\ Falk\ -\ Find\ &\ Share\ on\ GIPHY.gif);
-  background-color: #b5e8d7;
+  background-color: #d9f6ae;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -2454,8 +2508,8 @@ to keep your styles reusable and consistent.
   }
   /* arrow svg */
   .arrow {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
   }
 
   /* ----------------------------- */
@@ -2508,10 +2562,13 @@ to keep your styles reusable and consistent.
   }
 
   .hero-headline-wrapper {
-    min-height: 10vh;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: var(--padding-ultra);
+    padding-right: var(--padding-ultra);
   }
   .hero-background {
-    height: 80vh;
+    height: 90vh;
     background-repeat: no-repeat;
   }
 
@@ -2772,7 +2829,7 @@ to keep your styles reusable and consistent.
   }
 
   .arrow {
-    padding-right: 1rem;
+    padding-right: 0;
   }
 
   /* About Page Grid for Large Devices */

@@ -454,6 +454,59 @@
           link.addEventListener("mouseleave", () => cursor.classList.remove("expand"));
         });
       });
+      const footer = document.querySelector("footer");
+
+      const starSymbols = ["✦", "✧", "✴"];
+
+      let lastX = null;
+      let lastY = null;
+
+      footer.addEventListener("pointermove", (e) => {
+        // Only activate for mouse or pen
+        if (e.pointerType === "touch") return;
+
+        // Calculate cursor movement distance
+        if (lastX !== null && lastY !== null) {
+          const distance = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+
+          // Only create a star after moving 35px
+          if (distance < 25) return;
+        }
+
+        lastX = e.clientX;
+        lastY = e.clientY;
+
+        // Create star element
+        const star = document.createElement("span");
+        star.classList.add("cursor-star");
+
+        // Random star symbol
+        star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+
+        // Randomize star appearance
+        const size = Math.random() * 25 + 20;
+        const duration = Math.random() * 1.2 + 1.2;
+        const drift = (Math.random() - 0.5) * 50;
+        const rotation = Math.random() * 180;
+
+        // Position at cursor
+        star.style.left = `${e.clientX}px`;
+        star.style.top = `${e.clientY}px`;
+
+        // Apply randomized properties
+        star.style.setProperty("--size", `${size}px`);
+        star.style.setProperty("--duration", `${duration}s`);
+        star.style.setProperty("--drift", `${drift}px`);
+        star.style.setProperty("--rotation", `${rotation}deg`);
+
+        // Add star to page
+        document.body.appendChild(star);
+
+        // Remove star after animation
+        star.addEventListener("animationend", () => {
+          star.remove();
+        });
+      });
     </script>
     <div class="custom-cursor">
       <span class="cursor-arrow"></span>

@@ -80,15 +80,19 @@
     </section>
 
     <main class="main-work-section">
-      <div class="flex-row padding-small">
-        <div class="width-two-thirds">
-          <h1 class="h1-full-width load-fade-text" style="animation-delay: 200ms">
-            Featured Work
-            <img class="arrow" src="assets/misc/arrow.svg" alt="arrow" />
-          </h1>
+      <div class="flex-row">
+        <div class="width-two-thirds work-page-index">
+          <h4 class="load-fade-text all-caps" style="animation-delay: 200ms">Email</h4>
         </div>
         <div class="width-third">
-          <h4 class="right-aligned"></h4>
+          <h4 class="load-fade-text right-aligned all-caps work-page-index" style="animation-delay: 200ms">
+            Scroll <img class="arrow" src="assets/misc/arrow.svg" alt="arrow" />
+          </h4>
+        </div>
+      </div>
+      <div class="padding-small">
+        <div class="work-page-feature">
+          <h2 class="h1-full-width load-fade-text" style="animation-delay: 400ms">Featured Work [6]</h2>
         </div>
       </div>
 
@@ -111,7 +115,7 @@
               <a href="project-1.html">
                 <div>
                   <h1 class="work-grid-project-title spacing-work">The Purrfect Start</h1>
-                  <h6 class="work-grid-project-category">PRINT / TYPOGRAPHY / ILLUSTRATION</h6>
+                  <h6 class="work-grid-project-category all-caps">Print / Typography / Illustration</h6>
                 </div>
               </a>
             </li>
@@ -130,7 +134,7 @@
               <a href="project-2.html">
                 <div>
                   <h1 class="work-grid-project-title spacing-work">Spriig</h1>
-                  <h6 class="work-grid-project-category">BRANDING / PRINT / ADVERTISMENT</h6>
+                  <h6 class="work-grid-project-category all-caps">Branding / Print / Advertisment</h6>
                 </div>
               </a>
             </li>
@@ -148,7 +152,7 @@
               <a href="project-3.html">
                 <div class="project-details-overlay">
                   <h1 class="work-grid-project-title spacing-work">Planeta Pop</h1>
-                  <h6 class="work-grid-project-category">BRANDING / MOTION / ART DIRECTION</h6>
+                  <h6 class="work-grid-project-category all-caps">Branding / Motion / Art Direction</h6>
                 </div>
               </a>
             </li>
@@ -166,7 +170,7 @@
               <a href="project-4.html">
                 <div class="project-details-overlay">
                   <h1 class="work-grid-project-title spacing-work">Fruition Movement</h1>
-                  <h6 class="work-grid-project-category">BRANDING / MOTION / ART DIRECTION</h6>
+                  <h6 class="work-grid-project-category all-caps">Branding / Motion / Art Direction</h6>
                 </div>
               </a>
             </li>
@@ -494,6 +498,60 @@
         links.forEach((link) => {
           link.addEventListener("mouseenter", () => cursor.classList.add("expand"));
           link.addEventListener("mouseleave", () => cursor.classList.remove("expand"));
+        });
+      });
+
+      const footer = document.querySelector("footer");
+
+      const starSymbols = ["✦", "✧", "✴"];
+
+      let lastX = null;
+      let lastY = null;
+
+      footer.addEventListener("pointermove", (e) => {
+        // Only activate for mouse or pen
+        if (e.pointerType === "touch") return;
+
+        // Calculate cursor movement distance
+        if (lastX !== null && lastY !== null) {
+          const distance = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+
+          // Only create a star after moving 35px
+          if (distance < 25) return;
+        }
+
+        lastX = e.clientX;
+        lastY = e.clientY;
+
+        // Create star element
+        const star = document.createElement("span");
+        star.classList.add("cursor-star");
+
+        // Random star symbol
+        star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+
+        // Randomize star appearance
+        const size = Math.random() * 25 + 20;
+        const duration = Math.random() * 1.2 + 1.2;
+        const drift = (Math.random() - 0.5) * 50;
+        const rotation = Math.random() * 180;
+
+        // Position at cursor
+        star.style.left = `${e.clientX}px`;
+        star.style.top = `${e.clientY}px`;
+
+        // Apply randomized properties
+        star.style.setProperty("--size", `${size}px`);
+        star.style.setProperty("--duration", `${duration}s`);
+        star.style.setProperty("--drift", `${drift}px`);
+        star.style.setProperty("--rotation", `${rotation}deg`);
+
+        // Add star to page
+        document.body.appendChild(star);
+
+        // Remove star after animation
+        star.addEventListener("animationend", () => {
+          star.remove();
         });
       });
     </script>
