@@ -155,6 +155,7 @@
   --color-icon-heart: darkred;
   --color-text-holding-footer: #fbfdf7;
   --color-bg-selection: #f89bed;
+  --color-inactive-button: #cbcbcb;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -496,7 +497,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   letter-spacing: 0.03em;
@@ -512,7 +513,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   letter-spacing: 0.04em;
   color: var(--h4-color);
@@ -526,10 +527,10 @@ h5 {
 }
 
 h6 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.3;
   font-weight: 500;
-  font-family: "Manrope";
+  font-family: var(--font-family-project-accent);
   color: var(--h6-color);
 }
 
@@ -1093,7 +1094,7 @@ a.nav-link-primary-active {
   color: var(--color-accent-primary);
   text-decoration: none;
   padding: 0 1rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   position: relative;
   overflow: hidden;
   transition: color 0.25s ease-in-out;
@@ -1119,34 +1120,24 @@ a.nav-link-primary-active {
 }
 
 .btn-secondary {
-  display: inline-block;
-  background: var(--color-bg-selection);
-  color: var(--color-bg);
-  text-decoration: none;
-  padding: 0 1.5rem;
-  font-family: "DM sans", sans-serif;
-  position: relative;
-  overflow: hidden;
-  transition: color 0.25s ease-in-out;
-  font-size: 1rem;
-  line-height: 2.5rem;
-  min-height: 2.5rem;
-  z-index: 1;
-}
-/* Background fill */
-.btn-secondary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-accent-secondary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s ease-in-out;
-  z-index: -1;
+  background: var(--color-inactive-button);
+  padding: 0.5rem 1.25rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.btn-secondary:hover::before {
-  transform: scaleX(1);
+.btn-secondary:hover {
+  background-color: var(--color-accent-secondary);
+  color: var(--color-accent-primary);
+}
+.button-space {
+  display: flex;
+  gap: 1rem;
 }
 
 /* ANIMATIONS */
@@ -1420,22 +1411,22 @@ a.nav-link-primary-active {
   position: relative;
   overflow: hidden;
   padding: var(--padding-medium) 0;
-  border-top: 1px solid var(--color-text-project-category);
+  border-top: 1.5px solid var(--color-text-project-category);
 }
 
 /* Heading */
 
 .peek-heading {
   display: flex;
-  align-items: baseline;
+  align-items: flex;
   gap: 1rem;
   margin-bottom: 2rem;
-  font-family: "Manrope";
+  font-family: var(--font-family-project-accent);
 }
 
 .peek-heading-note {
   margin-left: auto;
-  font-size: 0.8em;
+  font-size: 1rem;
   opacity: 0.6;
 }
 
@@ -1451,10 +1442,8 @@ a.nav-link-primary-active {
   position: relative;
   width: 100%;
   height: 550px;
-
   margin: 0;
   padding: 0;
-
   list-style: none;
   overflow: hidden;
   touch-action: pan-y;
@@ -1567,14 +1556,11 @@ a.nav-link-primary-active {
 .peek-tidy-row {
   display: flex;
   justify-content: center;
-  padding: 1rem var(--padding-ultra);
+  padding: 2rem var(--padding-ultra);
 }
 
 .peek-tidy {
-  background: transparent;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-
+  background: var(--color-inactive-button);
   padding: 0.5rem 1.25rem;
 
   font-family: inherit;
@@ -1588,8 +1574,8 @@ a.nav-link-primary-active {
 }
 
 .peek-tidy:hover {
-  background-color: var(--color-accent-primary);
-  color: white;
+  background-color: var(--color-accent-secondary);
+  color: var(--color-accent-primary);
 }
 
 /* =================================
@@ -1906,6 +1892,12 @@ a.nav-link-primary-active {
   grid-column: 1 / 2; /* Text spans the first column */
   grid-row: 2 / 3; /* Text spans the second row */
 }
+.about-bio {
+  width: 50%;
+}
+.about-fun {
+  border-top: 1.5px solid var(--color-text-project-category);
+}
 .about-header {
   display: grid;
   grid-template-columns: 1fr;
@@ -1913,7 +1905,10 @@ a.nav-link-primary-active {
   width: 100%;
 }
 .about-sub-text {
-  padding: var(--padding-tiny);
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-tiny);
+  font-size: 1rem;
+  color: var(--color-text-project-category);
   font-size: 1rem;
 }
 
@@ -1923,11 +1918,31 @@ a.nav-link-primary-active {
 
 .fun-about-image {
   width: 200px;
+  padding: var(--padding-small);
 }
 .fun-about-image img.rotate {
   width: 120px;
   height: auto;
 }
+.about-fun-text {
+  padding-bottom: var(--padding-small);
+  font-size: 1rem;
+  color: var(--color-text-project-category);
+}
+.about-fun-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 1rem; /* Space below the description */
+  gap: 1rem;
+}
+.about-fun-container {
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .about-extra {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1935,7 +1950,7 @@ a.nav-link-primary-active {
 }
 /* award list styles */
 .title {
-  font-size: 1.9rem;
+  font-size: 2rem;
   line-height: 1;
   margin-top: 3px;
   padding-top: 10px;
@@ -1943,8 +1958,14 @@ a.nav-link-primary-active {
 .about-title {
   padding-bottom: 1rem;
 }
+
 .work-category-container {
   padding-bottom: 1%;
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 .about-category-header,
 .work-category-header {
@@ -1952,22 +1973,9 @@ a.nav-link-primary-active {
   line-height: 1.5rem;
   font-weight: 400;
   font-family: var(--font-family-body);
-  font-style: normal;
-  margin: 0%;
-}
-.work-category-container {
-  padding-bottom: 1%;
-  padding-top: 1%;
-}
-.about-category-header,
-.work-category-header {
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  font-family: var(--font-family-body);
 }
 .work-category-body {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 200;
   font-family: var(--font-family-project-accent);
 }
@@ -1984,6 +1992,11 @@ a.nav-link-primary-active {
 .about-page > .col-2 {
   width: 100%;
 }
+
+.about-fun-container > .col-4 {
+  padding: var(--padding-small);
+}
+
 .stack {
   display: flex;
   flex-direction: column;
@@ -2008,7 +2021,7 @@ a.nav-link-primary-active {
   color: inherit;
   gap: 20px;
   padding: 16px 4px;
-  border-bottom: 1px solid rgb(128, 128, 128);
+  border-bottom: 1.5px solid rgb(128, 128, 128);
   text-decoration: none;
   transition: opacity 0.3s;
 }
@@ -2492,14 +2505,14 @@ a.nav-link-primary-active {
   margin-bottom: 1rem;
 }
 .project-item {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
   font-weight: 400;
-  font-family: "Manrope";
+  font-family: var(--font-family-body);
   margin-bottom: 0.5rem;
 }
 .project-list-title {
-  font-size: 0.6;
+  font-size: 0.85;
 }
 .list-section {
   display: flex;
@@ -2747,7 +2760,7 @@ to keep your styles reusable and consistent.
   }
 
   .h4 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.2;
     padding: var(--padding-small);
     color: var(--h4-color);
@@ -2755,14 +2768,13 @@ to keep your styles reusable and consistent.
   }
 
   .h5 {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     line-height: 1.2;
-
     color: var(--h4-color);
   }
 
   .h6 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.3;
     font-weight: 500;
     font-family: "Manrope";
@@ -2925,7 +2937,7 @@ to keep your styles reusable and consistent.
 
   /* about list styles */
   .title {
-    font-size: 1.9rem;
+    font-size: 2rem;
     line-height: 1;
     margin-top: 3px;
     padding-top: 10px;
@@ -2933,9 +2945,7 @@ to keep your styles reusable and consistent.
   .about-title {
     padding-bottom: 1rem;
   }
-  .work-category-container {
-    padding-bottom: 1%;
-  }
+
   .about-category-header,
   .work-category-header {
     font-size: 1rem;
@@ -2948,6 +2958,10 @@ to keep your styles reusable and consistent.
   .work-category-container {
     padding-bottom: 1%;
     padding-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.5rem;
   }
   .about-category-header,
   .work-category-header {
@@ -2956,8 +2970,22 @@ to keep your styles reusable and consistent.
     font-weight: 400;
     font-family: var(--font-family-body);
   }
+  .about-fun-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 1rem; /* Space below the description */
+    gap: 1rem;
+  }
+  .about-fun-container {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
   .work-category-body {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 200;
     font-family: var(--font-family-project-accent);
   }
@@ -2985,6 +3013,39 @@ to keep your styles reusable and consistent.
   .work-page-grid-item > a.grayscale:active img,
   .work-page-grid-item > a.grayscale:hover img {
     filter: grayscale(0);
+  }
+
+  /* Mobile collection layout */
+  @media screen and (max-width: 768px) {
+    .peek-collection {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      grid-auto-rows: auto;
+      gap: 2.5rem 1.5rem;
+      height: auto !important;
+      padding: 1.5rem var(--padding-small);
+      overflow: visible !important;
+    }
+
+    .peek-object {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      transform: none !important;
+      margin: 0;
+    }
+
+    .peek-object img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .peek-object-num {
+      top: -1.2rem;
+    }
   }
 
   /* Padding around work grid and project page */
@@ -3033,7 +3094,7 @@ to keep your styles reusable and consistent.
   }
   /* Project text styles */
   .project-list-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   /* Sidebar on Large Devices */
@@ -3069,7 +3130,7 @@ to keep your styles reusable and consistent.
   /* project category style */
   .project-award p {
     padding: 0.5rem 1rem;
-    border: 1px solid #262626;
+    border: 1.5px solid #262626;
     background-color: #262626;
     color: var(--color-bg);
     border-radius: 60px;
