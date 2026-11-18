@@ -719,6 +719,7 @@ a.nav-link-primary-active {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
   transition: transform 0.2s ease;
+  font-family: var(--font-family-heading);
 }
 /* -------------------------------------------------------------------------- */
 /* 🧭 Previous & Next Project Navigation Arrows                               */
@@ -805,15 +806,26 @@ a.nav-link-primary-active {
   align-items: flex-start;
   padding-left: var(--padding-small);
   padding-right: var(--padding-small);
-  padding-top: var(--padding-small);
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-tiny);
 }
 .nav-sticky {
   position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: #f5faff60;
-  backdrop-filter: blur(8px);
+  background-color: #f5faff64;
+  backdrop-filter: blur(5px);
+}
+.nav-sticky::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2 * var(--padding-small));
+  height: 1.5px;
+  background-color: var(--color-text-project-category);
 }
 .nav-branding-work {
   display: flex;
@@ -832,8 +844,10 @@ a.nav-link-primary-active {
   border-bottom: 1.5px solid var(--color-text-project-category);
 }
 .nav-branding-item {
-  padding-left: var(--padding-tiny);
-  padding-right: var(--padding-tiny);
+  padding: var(--padding-tiny);
+}
+.nav-branding-logo {
+  padding-top: var(--padding-tiny);
 }
 .nav-branding-item-border {
   padding: var(--padding-tiny);
@@ -854,9 +868,7 @@ a.nav-link-primary-active {
   border-image: none;
   padding: 4px 8px;
 }
-.nav-branding-logo {
-  padding: var(--padding-tiny);
-}
+
 .header-nav-list {
   display: flex;
   flex-direction: column;
@@ -1417,7 +1429,6 @@ a.nav-link-primary-active {
   position: relative;
   overflow: hidden;
   padding: var(--padding-medium) 0;
-  border-top: 1.5px solid var(--color-text-project-category);
 }
 
 /* Heading */
@@ -1426,7 +1437,7 @@ a.nav-link-primary-active {
   display: flex;
   align-items: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   font-family: var(--font-family-project-accent);
 }
 
@@ -1453,6 +1464,8 @@ a.nav-link-primary-active {
   list-style: none;
   overflow: hidden;
   touch-action: pan-y;
+  padding-top: var(--padding-small);
+  border-top: 1.5px solid var(--color-text-project-category);
 }
 
 .peek-object {
@@ -2925,7 +2938,7 @@ to keep your styles reusable and consistent.
   }
 
   .nav-branding-logo {
-    width: 5rem;
+    width: 7.5rem;
     /* TODO: Adjust the width of the logo on large devices here. */
   }
   .logo {
