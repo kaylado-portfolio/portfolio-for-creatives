@@ -497,7 +497,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   letter-spacing: 0.03em;
@@ -832,7 +832,8 @@ a.nav-link-primary-active {
   border-bottom: 1.5px solid var(--color-text-project-category);
 }
 .nav-branding-item {
-  padding: var(--padding-tiny);
+  padding-left: var(--padding-tiny);
+  padding-right: var(--padding-tiny);
 }
 .nav-branding-item-border {
   padding: var(--padding-tiny);
@@ -1002,6 +1003,11 @@ a.nav-link-primary-active {
 
 .about-extra {
   height: 15rem;
+}
+.about-list li {
+  gap: 0.2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1.5px solid var(--color-text-project-category);
 }
 
 /* Footer marquee animation */
@@ -1556,7 +1562,7 @@ a.nav-link-primary-active {
 .peek-tidy-row {
   display: flex;
   justify-content: center;
-  padding: 2rem var(--padding-ultra);
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 .peek-tidy {
@@ -1585,7 +1591,6 @@ a.nav-link-primary-active {
 @media (max-width: 768px) {
   .peek-heading {
     flex-wrap: wrap;
-    padding: 0 var(--padding-small);
   }
 
   .peek-heading-note {
@@ -1603,6 +1608,49 @@ a.nav-link-primary-active {
 
   .peek-legend {
     gap: 1rem;
+  }
+
+  /* MOBILE COLLECTION GRID */
+  @media (max-width: 768px) {
+    .peek-collection {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: auto;
+      gap: 2.5rem 1rem;
+
+      width: 100%;
+      height: auto;
+      padding: 1.5rem 0.75rem;
+      overflow: visible;
+    }
+
+    .peek-object {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100%;
+      height: auto;
+
+      transform: none !important;
+      z-index: auto !important;
+
+      cursor: default;
+      touch-action: auto;
+    }
+
+    .peek-object img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .peek-object-num {
+      top: -1.2rem;
+    }
+
+    .peek-tidy-row {
+      padding: 1rem var(--padding-small);
+    }
   }
 }
 
@@ -1898,6 +1946,34 @@ a.nav-link-primary-active {
 .about-fun {
   border-top: 1.5px solid var(--color-text-project-category);
 }
+.about-fun-text {
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 7px;
+  transition: text-decoration-color 0.3s ease;
+}
+
+.about-fun-link:hover .about-fun-text {
+  text-decoration-color: currentColor;
+}
+.about-fun-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.about-fun-text {
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 7px;
+  transition: text-decoration-color 0.3s ease;
+}
+
+/* Hover over anything inside the column */
+.col-4:hover .about-fun-text {
+  text-decoration-color: currentColor;
+}
 .about-header {
   display: grid;
   grid-template-columns: 1fr;
@@ -1928,6 +2004,7 @@ a.nav-link-primary-active {
   padding-bottom: var(--padding-small);
   font-size: 1rem;
   color: var(--color-text-project-category);
+  font-weight: 500;
 }
 .about-fun-container {
   display: flex;
@@ -1950,7 +2027,7 @@ a.nav-link-primary-active {
 }
 /* award list styles */
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1;
   margin-top: 3px;
   padding-top: 10px;
@@ -1994,7 +2071,8 @@ a.nav-link-primary-active {
 }
 
 .about-fun-container > .col-4 {
-  padding: var(--padding-small);
+  padding-top: var(--padding-small);
+  padding-bottom: var(--padding-small);
 }
 
 .stack {
@@ -2021,14 +2099,14 @@ a.nav-link-primary-active {
   color: inherit;
   gap: 20px;
   padding: 16px 4px;
-  border-bottom: 1.5px solid rgb(128, 128, 128);
+  border-bottom: 1.5px solid var(--color-text-project-category);
   text-decoration: none;
   transition: opacity 0.3s;
 }
 
 .awards-row .awards-year {
   font-size: 0.85rem;
-  color: rgb(122, 122, 118);
+  color: var(--color-text-project-category);
   font-family: var(--font-family-project-accent);
   width: 40px;
   flex-shrink: 0;
@@ -2352,6 +2430,10 @@ a.nav-link-primary-active {
 }
 .col-3 {
   width: 85%;
+}
+/* Right aligned */
+.right-aligned {
+  text-align: right;
 }
 
 .description-row {
@@ -2750,7 +2832,7 @@ to keep your styles reusable and consistent.
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   h3 {
@@ -2861,7 +2943,7 @@ to keep your styles reusable and consistent.
     padding-right: var(--padding-ultra);
   }
   .hero-background {
-    height: 95vh;
+    height: 70vh;
     background-repeat: no-repeat;
   }
 
@@ -2874,10 +2956,6 @@ to keep your styles reusable and consistent.
     justify-content: center;
     padding: var(--padding-small);
     text-align: center;
-  }
-
-  .right-aligned {
-    text-align: right;
   }
 
   .error-404 {
@@ -2937,10 +3015,11 @@ to keep your styles reusable and consistent.
 
   /* about list styles */
   .title {
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 1;
     margin-top: 3px;
     padding-top: 10px;
+    font-family: var(--font-family-project-accent);
   }
   .about-title {
     padding-bottom: 1rem;
@@ -3145,10 +3224,7 @@ to keep your styles reusable and consistent.
   }
 
   /* Column styles for two-column and four-column layouts (desktop) */
-  .col-2,
-  .col-4 {
-    padding: var(--padding-small);
-  }
+
   .col-2 {
     width: 40%;
   }
@@ -3167,7 +3243,7 @@ to keep your styles reusable and consistent.
   .column-two {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 4rem;
   }
 
   .project-navigation {
